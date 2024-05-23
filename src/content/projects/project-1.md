@@ -1,8 +1,9 @@
 ---
 inProgress: false
-title: Project title
-description: Project description
+title: Uffride Admin
+description: Ride Sharing
+image: /images/uffride.webp
 img_alt: project image alt text
-link: https://github.com/veranikabarel?tab=repositories
-tags: ['React', 'CSS', 'Typescript']
+link: https://www.uffride.com/
+tags: ['React', 'CSS', 'JS']
 ---

@@ -1,7 +1,6 @@
 ---
-import Button from '@components/ui/Button.astro';
 import ToggleTheme from '@components/ui/ToggleTheme.astro';
-import { Astronav, MenuIcon, MenuItems } from 'astro-navbar';
+import { Astronav, MenuItems } from 'astro-navbar';
 
 const menuitems = [
 	{
@@ -13,22 +12,26 @@ const menuitems = [
 		path: '#projects',
 	},
 	{
+		title: 'Tech Stack',
+		path: '#tech',
+	},
+	{
 		title: 'Contact',
 		path: '#contact',
 	},
 ];
+const { nav } = Astro.props;
+
 ---
 
-<header data-testId="header" class="my-5 flex flex-col items-center justify-between lg:flex-row">
+<header
+	data-testId="header"
+	class="z-50 flex w-full flex-col items-center justify-between xs:flex xs:flex-row dark:bg-black bg-white py-2"
+>
 	<Astronav>
-		<div class="flex w-full items-center justify-between lg:w-auto">
-			<Button size={'sm'} name="Download CV">Download CV</Button>
-			<div class="block lg:hidden">
-				<MenuIcon class="h-4 w-4 text-black dark:text-white" />
-			</div>
-		</div>
-		<MenuItems class="mt-2 hidden w-full lg:mt-0 lg:flex lg:w-auto">
-			<ul class="flex flex-col lg:flex-row lg:gap-3">
+		<div></div>
+		<MenuItems class="w-full xs:mt-0 flex xs:w-auto justify-center">
+			<ul class="flex  flex-row gap-3 mx-2">
 				{
 					menuitems.map((item) => (
 						<>
@@ -36,7 +39,7 @@ const menuitems = [
 								<a
 									aria-label="navigation link"
 									href={item.path}
-									class="flex py-2 text-black hover:text-orange dark:text-white dark:hover:text-orange lg:px-3"
+									class="flex py-2 text-black hover:text-orange dark:text-white dark:hover:text-orange xs:px-3 focus-within:text-orange"
 								>
 									{item.title}
 								</a>
@@ -44,7 +47,7 @@ const menuitems = [
 						</>
 					))
 				}
-				<li><ToggleTheme /></li>
+				<li class="grid"><ToggleTheme id={nav}/></li>
 			</ul>
 		</MenuItems>
 	</Astronav>

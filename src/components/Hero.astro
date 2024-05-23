@@ -1,22 +1,31 @@
 ---
-import heroImage from '@assets/images/hero.png';
-import Button from '@components/ui/Button.astro';
+import heroImage from '@assets/images/surojd.jpg';
+import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
+import Next from './ui/Next.astro';
 ---
 
 <section
 	data-testid="hero"
-	class="flex h-screen flex-col-reverse items-center justify-center text-center lg:flex-row"
+	class="flex h-screen flex-col-reverse items-center justify-center text-center sm:flex-row"
 >
-	<div class="mb-10 flex flex-col items-center lg:mb-0 lg:w-1/2">
+	<div class="mb-10 flex flex-col items-center sm:mb-0 sm:w-1/2">
 		<div>
-			<h1 class="mb-10 font-monospace text-3xl text-black dark:text-white lg:text-5xl">
-				Hi! My name is <span class="text-orange">Jane Doe</span> and I am a web developer based in New
-				York.
+			<h1 class="mb-10 font-monospace text-3xl text-black dark:text-white md:text-4xl lg:text-5xl">
+				Hi! My name is <span class="text-orange">Suroj Dangol</span> and I am a Full Stack developer
+				based in Nepal.
 			</h1>
 		</div>
 		<div class="mb-10">
-			<Button style={'primary'} size={'lg'} class={'flex'} name="learn more">Learn more</Button>
+			<!-- <Button style={'primary'} size={'lg'} class={'flex'} name="learn more">Learn more</Button> -->
+
+			<a href="https://github.com/Surojd" target="_blank" rel="noopener" aria-label="github"
+				><Icon
+					class="h-8 text-black hover:text-orange dark:text-white dark:hover:text-orange md:h-12"
+					name="mdi:github"
+					size={100}
+				/></a
+			>
 		</div>
 	</div>
 	<div data-testid="hero-img" class="mb-10 flex w-1/2 items-center justify-center">
@@ -24,9 +33,10 @@ import { Image } from 'astro:assets';
 			src={heroImage}
 			alt="Coding girl"
 			format="png"
-			width={600}
-			height={600}
+		
+			class='rounded-full  aspect-square'
 			loading="eager"
 		/>
 	</div>
+	<Next url="#about" />
 </section>

@@ -1,0 +1,14 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+	title?: string;
+	icon?: string;
+	children?: HTMLElement | HTMLElement[];
+}
+
+const { icon, title = 'Project title' } = Astro.props;
+---
+<Icon name={icon} title={title} size={100} class=" aspect-square rounded-md p-2 " />
+
+

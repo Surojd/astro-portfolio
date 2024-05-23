@@ -1,0 +1,13 @@
+---
+import { Icon } from 'astro-icon/components';
+const { url = '#' } = Astro.props;
+---
+
+<a
+	href={url}
+	class="absolute bottom-0 left-0 right-0 justify-center hidden xs:flex"
+	aria-label="link to repository"
+>
+	<!-- icon for donw ^ -->
+	<Icon name="mdi:arrow-down" size={24} />
+</a>

@@ -1,0 +1,43 @@
+---
+import Tech from '@components/ui/Tech.astro';
+import backgroundImage from '@assets/images/bg3.jpg';
+const technologyStacks = [
+	{
+		title: 'Java',
+		icon: 'java',
+	},
+	{
+		title: 'Spring Boot',
+		icon: 'spring',
+	},
+	{
+		title: 'ReactJS',
+		icon: 'react',
+	},
+	{
+		title: 'Flutter',
+		icon: 'flutter',
+	},
+	{
+		title: 'MySql',
+		icon: 'mysql',
+	},
+	{
+		title: 'AWS',
+		icon: 'aws',
+	},
+];
+---
+
+<section
+	data-testid="tech"
+	id="tech"
+	class="mb-10 flex flex-col items-center justify-center md:mb-0 md:h-screen"
+>
+	<!-- bg-[url('/src/assets/images/bg3.jpg')] bg-no-repeat bg-cover   -->
+	<h2 class="font-monospace text-2xl text-orange lg:text-4xl">Technology Stack</h2>
+	<span class="mb-10 h-1 w-10 bg-orange"></span>
+	<div class="mb-10 grid w-full grid-cols-auto-fit-2 gap-4">
+		{technologyStacks.map(({ title, icon }) => <Tech title={title} icon={icon} />)}
+	</div>
+</section>

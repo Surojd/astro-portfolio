@@ -1,8 +1,9 @@
 ---
 inProgress: false
-title: Project title
-description: Project description
+title: GSewa
+description: Digital Wallet
+image: /images/gsewa.webp
 img_alt: project image alt text
-link: https://github.com/veranikabarel?tab=repositories
-tags: ['React', 'CSS', 'Typescript']
+link: https://gsewa.com.np/
+tags: ['Java', 'Spring Boot', 'React', 'CSS', 'JS']
 ---

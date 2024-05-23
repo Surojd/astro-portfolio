@@ -1,10 +1,11 @@
 ---
+import Next from './ui/Next.astro';
 ---
 
 <section
 	data-testid="about"
 	id="about"
-	class="mb-10 flex flex-col items-center justify-center lg:mb-0 lg:h-screen lg:flex-row"
+	class="relative mb-10 flex h-screen flex-col items-center justify-center md:mb-0 lg:flex-row mx-5"
 >
 	<div class="mb-10 flex w-full flex-col items-center justify-center lg:mb-0 lg:w-1/2">
 		<h2 class="font-monospace text-2xl text-orange lg:text-4xl">About me</h2>
@@ -13,12 +14,16 @@
 
 	<div class="w-full text-justify text-black dark:text-white lg:w-1/2">
 		<p class="mb-2">
-			Here is your description in English! Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-			sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-			irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-			Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-			id est laborum
+			As a seasoned Full Stack Programmer with 8 years of experience, I bring a wealth of knowledge
+			and skill to the table. My specialization in Java technologies allows me to deliver
+			high-quality software solutions, utilizing frameworks and tools such as Java Swing, Spring
+			Boot, and Flutter. Additionally, my proficiency in JavaScript programming enables me to create
+			dynamic and responsive applications. I am committed to simplifying the development process,
+			ensuring it is not only efficient but also enjoyable for my clients. My approach is
+			client-centric, focusing on delivering tailored solutions that meet their unique needs and
+			exceed their expectations.
 		</p>
 	</div>
+
+	<Next url="#projects" />
 </section>

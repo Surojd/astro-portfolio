@@ -1,25 +1,44 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import upwork from '../../icons/upwork.svg';
 ---
 
-<a href="https://github.com/" target="_blank" rel="noopener" aria-label="github"
+<!-- for email -->
+<a href="mailto:hire@surojd.com.np" target="_blank" rel="noopener" aria-label="email">
+	<Icon class="h-8 w-full hover:text-orange dark:hover:text-orange md:h-12" name="mdi:email" />
+</a>
+
+<a href="https://www.linkedin.com/in/surojd/" target="_blank" rel="noopener" aria-label="linkedin"
 	><Icon
-		class="h-8 hover:text-orange dark:hover:text-orange md:h-12"
-		name="mdi:github"
-		size={100}
-	/></a
->
-<a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="linkedin"
-	><Icon
-		class="h-8 hover:text-orange dark:hover:text-orange md:h-12"
+		class="h-8 w-full hover:text-orange dark:hover:text-orange md:h-12"
 		name="mdi:linkedin"
-		size={100}
 	/></a
 >
-<a href="https://twitter.com/" target="_blank" rel="noopener" aria-label="twitter"
+<!-- for upwork -->
+
+<a
+	href="https://www.upwork.com/freelancers/surojd"
+	target="_blank"
+	rel="noopener"
+	aria-label="upwork"
+>
+	<!-- <Icon name={'upwork'} title={'Upwork'}  class="aspect-square rounded-md p-2" /> -->
+	<Image
+		class="h-8 w-full p-1 hover:text-orange dark:hover:text-orange md:h-12"
+		src={upwork}
+		alt="upwork"
+	/>
+</a>
+
+<!-- for facebook -->
+<a
+	href="https://www.facebook.com/surojdeveloper"
+	target="_blank"
+	rel="noopener"
+	aria-label="facebook"
 	><Icon
-		class="h-8 hover:text-orange dark:hover:text-orange md:h-12"
-		name="mdi:twitter"
-		size={100}
+		class="h-8 w-full hover:text-orange dark:hover:text-orange md:h-12"
+		name="mdi:facebook"
 	/></a
 >

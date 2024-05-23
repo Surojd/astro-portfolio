@@ -1,8 +1,9 @@
 ---
 inProgress: false
-title: Project title
-description: Project description
+title: SIM Management System
+description: SIM Card Dealer and User details collection
+image: /images/sim.webp
 img_alt: project image alt text
-link: https://github.com/veranikabarel?tab=repositories
-tags: ['React', 'CSS', 'Typescript']
+link: https://sim.bloomers.com.np/
+tags: [  'ReactJS', 'MaterialUI', 'Spring Boot']
 ---

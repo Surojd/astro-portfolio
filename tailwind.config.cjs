@@ -16,6 +16,7 @@ module.exports = {
 			black: '#000',
 			white: '#fff',
 			orange: '#E06330',
+			yellow: 'yellow',
 		},
 		fontFamily: {
 			// Headings
@@ -37,6 +38,22 @@ module.exports = {
 		},
 		letterSpacing: {
 			wide: '.025em',
+		},
+		extend: {
+			gridTemplateColumns: (() => {
+				let gridTemplateColumns = {};
+				for (let i = 1; i <= 10; i++) {
+					gridTemplateColumns[`auto-fill-${i}`] = `repeat(auto-fill, minmax(${i * 50}px, 1fr))`;
+					gridTemplateColumns[`auto-fit-${i}`] = `repeat(auto-fit, minmax(${i * 50}px, 1fr))`;
+				}
+				gridTemplateColumns['auto-fill-content'] = 'repeat(auto-fill, minmax(auto, 1fr))';
+				gridTemplateColumns['auto-fit-content'] = 'repeat(auto-fit, minmax(auto, 1fr))';
+				return gridTemplateColumns;
+			})(),
+
+			gridAutoColumns: {
+				max: 'max-content',
+			},
 		},
 	},
 	plugins: [

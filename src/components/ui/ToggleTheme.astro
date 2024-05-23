@@ -1,10 +1,15 @@
+---
+const { id = 'checkbox' } = Astro.props;
+let theme = Astro.props.theme;
+---
+
 <div class="theme-switch-wrapper md:flex md:items-center">
 	<label
 		data-testid="theme-switch"
 		class="theme-switch relative inline-block h-[34px] w-[60px]"
-		for="checkbox"
+		for={id}
 	>
-		<input type="checkbox" id="checkbox" class="hidden" />
+		<input type="checkbox" id={id} class="hidden" />
 		<div
 			class="slider absolute bottom-0 left-0 right-0 top-0 cursor-pointer rounded-full bg-black before:absolute before:bottom-[4px] before:left-[4px] before:h-[26px] before:w-[26px] before:rounded-full before:bg-orange before:transition-[0.4s] dark:bg-white"
 		>
@@ -27,12 +32,10 @@
 		transform: translateX(26px);
 	}
 </style>
-
-<script>
+<script define:vars={{   id }}>
+	 
 	document.addEventListener('DOMContentLoaded', function ready() {
-		const button = document.querySelector(
-			'.theme-switch input[type="checkbox"]'
-		) as HTMLInputElement;
+		const button = document.querySelector(`#${id}`) ;
 
 		const switchTheme = () => {
 			document.documentElement.classList.toggle('dark');
