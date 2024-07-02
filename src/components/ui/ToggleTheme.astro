@@ -32,27 +32,33 @@ let theme = Astro.props.theme;
 		transform: translateX(26px);
 	}
 </style>
-<script define:vars={{   id }}>
-	 
+<script define:vars={{ id }}>
 	document.addEventListener('DOMContentLoaded', function ready() {
-		const button = document.querySelector(`#${id}`) ;
+		const button = document.querySelector(`#${id}`);
 
-		const switchTheme = () => {
-			document.documentElement.classList.toggle('dark');
-			if (document.documentElement.classList.contains('dark')) {
+		const switchTheme = (theme) => {
+			if (theme === 'dark') {
+				button.checked = true;
+				document.documentElement.classList.add('dark');
 				localStorage.setItem('theme', 'dark');
+			} else {
+				button.checked = false;
+				document.documentElement.classList.remove('dark');
+				localStorage.setItem('theme', 'light');
 			}
 		};
 
-		if (
-			localStorage.theme === 'dark' ||
-			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-		) {
-			switchTheme();
-		}
+		// Determine the system theme setting at the start
+		const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+			? 'dark'
+			: 'light';
+
+		// Apply the system theme on load
+		switchTheme(systemTheme);
 
 		button.addEventListener('click', () => {
-			switchTheme();
+			const currentTheme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+			switchTheme(currentTheme);
 		});
 	});
 </script>

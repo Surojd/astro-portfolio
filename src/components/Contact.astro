@@ -6,10 +6,51 @@ import Social from '@components/ui/Social.astro';
 <section
 	data-testid="contact"
 	id="contact"
-	class="flex flex-col flex-wrap items-center justify-center gap-8 text-black dark:text-white lg:mb-0  "
+	class="flex flex-col flex-wrap items-center justify-center gap-8 text-black dark:text-white lg:mb-0"
 >
 	<p>Comtact me</p>
-	<hr class="sm:w-1/2 w-full" />
+	<hr class="w-full sm:w-1/2" />
+	<div class="grid w-full grid-cols-auto-fit-1 sm:w-1/2">
+		<form
+			action="https://api.surojd.com.np/api/email/submit/5ftn3jRtXboSQsA9MtPNffZirUN87M"
+			method="POST"
+			class="flex flex-col gap-4"
+		>
+			<input name="to" type="hidden" value="surojsmiling@gmail.com" />
+			<input name="redirect" type="hidden" value="https://surojd.com.np/" />
+			<label for="name">Name</label>
+			<input
+				type="text"
+				name="name"
+				id="name"
+				placeholder="Your name"
+				required
+				class="border-gray-300 dark:border-gray-700
+				rounded-md border p-2"
+			/>
+			<label for="email">Email</label>
+			<input
+				type="email"
+				name="email"
+				id="email"
+				placeholder="Your email"
+				required
+				class="border-gray-300 dark:border-gray-700
+				rounded-md border p-2"
+			/>
+			<label for="message">Message</label>
+			<textarea
+				name="message"
+				id="message"
+				placeholder="Your message"
+				required
+				class="border-gray-300 dark:border-gray-700 rounded-md
+        border p-2 dark:text-black"
+			></textarea>
+			<Button type="submit">Send</Button>
+		</form>
+	</div>
+
 	<div class="grid w-full grid-cols-auto-fit-1 sm:w-1/2">
 		<Social />
 	</div>
