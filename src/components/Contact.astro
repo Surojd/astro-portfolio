@@ -1,27 +1,52 @@
 ---
 import Button from '@components/ui/Button.astro';
 import Social from '@components/ui/Social.astro';
+const isProduction = import.meta.env.PROD;
+const formActionURL = isProduction
+	? 'https://api.surojd.com.np/api/email/submit/5ftn3jRtXboSQsA9MtPNffZirUN87M'
+	: 'https://localapi.surojd.com.np/api/email/submit/5ftn3jRtXboSQsA9MtPNffZirUN87M';
 ---
 
-<section data-testid="contact" id="contact"
-	class="flex flex-col flex-wrap items-center justify-center gap-8 text-black dark:text-white lg:mb-0">
+<section
+	data-testid="contact"
+	id="contact"
+	class="flex flex-col flex-wrap items-center justify-center gap-8 text-black dark:text-white lg:mb-0"
+>
 	<p>Comtact me</p>
 	<hr class="w-full sm:w-1/2" />
 	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	<div class="grid w-full grid-cols-auto-fit-1 sm:w-1/2">
-		<form action="https://localapi.surojd.com.np/api/email/submit/5ftn3jRtXboSQsA9MtPNffZirUN87M" method="POST"
-			class="flex flex-col gap-4">
+		<form action={formActionURL} method="POST" class="flex flex-col gap-4">
 			<input name="to" type="hidden" value="surojsmiling@gmail.com" />
 			<input name="redirect" type="hidden" value="https://surojd.com.np/" />
 			<label for="name">Name</label>
-			<input type="text" name="name" id="name" placeholder="Your name" required class="border-gray-300 dark:border-gray-700 dark:text-black
-				rounded-md border p-2" />
+			<input
+				type="text"
+				name="name"
+				id="name"
+				placeholder="Your name"
+				required
+				class="border-gray-300 dark:border-gray-700 rounded-md
+				border p-2 dark:text-black"
+			/>
 			<label for="email">Email</label>
-			<input type="email" name="email" id="email" placeholder="Your email" required class="border-gray-300 dark:border-gray-700 dark:text-black
-				rounded-md border p-2" />
+			<input
+				type="email"
+				name="email"
+				id="email"
+				placeholder="Your email"
+				required
+				class="border-gray-300 dark:border-gray-700 rounded-md
+				border p-2 dark:text-black"
+			/>
 			<label for="message">Message</label>
-			<textarea name="message" id="message" placeholder="Your message" required
-				class="border-gray-300 dark:border-gray-700 rounded-md border p-2 dark:text-black"></textarea>
+			<textarea
+				name="message"
+				id="message"
+				placeholder="Your message"
+				required
+				class="border-gray-300 dark:border-gray-700 rounded-md border p-2 dark:text-black"
+			></textarea>
 			<div class="g-recaptcha" data-sitekey="6LeaiwYqAAAAAEqmiYk1fKW_nOCqL2FuEAW1V9_2"></div>
 
 			<Button type="submit">Send</Button>
