@@ -17,7 +17,7 @@ const projects = await getCollection('projects', ({ data }) => {
 	<span class="mb-10 h-1 w-10 bg-orange"></span>
 	<div class="mb-10 grid w-full grid-cols-auto-fit-3 gap-6 sm:grid-cols-auto-fit-6">
 		{
-			projects.map((project) => (
+			projects.reverse().map((project) => (
 				<Card
 					image={project.data.image}
 					url={project.data.link ?? '#'}
