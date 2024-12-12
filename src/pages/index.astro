@@ -32,8 +32,8 @@ import Layout from '@layouts/Layout.astro';
 		</div>
 	</div>
 
-	<script>
-		function getQueryParam(name: string) {
+	<script is:inline>
+		function getQueryParam(name) {
 			const urlParams = new URLSearchParams(window.location.search);
 			return urlParams.get(name);
 		}
@@ -44,9 +44,9 @@ import Layout from '@layouts/Layout.astro';
 			if (message) {
 				const dialog = document.getElementById('messageDialog');
 				const dialogMessage = document.getElementById('dialogMessage');
-				dialogMessage!.textContent = decodeURIComponent(message);
-				dialog!.classList.remove('hidden');
-				dialog!.classList.add('flex');
+				dialogMessage.textContent = decodeURIComponent(message);
+				dialog.classList.remove('hidden');
+				dialog.classList.add('flex');
 			}
 
 			document.getElementById('closeDialog')?.addEventListener('click', () => {
