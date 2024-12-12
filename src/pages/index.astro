@@ -17,4 +17,42 @@ import Layout from '@layouts/Layout.astro';
 		<Contact />
 		<BackToTop />
 	</main>
+
+	<div
+		id="messageDialog"
+		class="fixed inset-0 hidden items-center justify-center bg-black bg-opacity-80"
+	>
+		<div
+			class="rounded-lg border border-black bg-white p-6 shadow-lg dark:border-white dark:bg-black"
+		>
+			<p id="dialogMessage" class="text-lg"></p>
+			<button id="closeDialog" class="bg-blue-500 mt-4 rounded px-4 py-2 text-black dark:text-white"
+				>Close</button
+			>
+		</div>
+	</div>
+
+	<script>
+		function getQueryParam(name: string) {
+			const urlParams = new URLSearchParams(window.location.search);
+			return urlParams.get(name);
+		}
+
+		document.addEventListener('DOMContentLoaded', () => {
+			const message = getQueryParam('message');
+
+			if (message) {
+				const dialog = document.getElementById('messageDialog');
+				const dialogMessage = document.getElementById('dialogMessage');
+				dialogMessage!.textContent = decodeURIComponent(message);
+				dialog!.classList.remove('hidden');
+				dialog!.classList.add('flex');
+			}
+
+			document.getElementById('closeDialog')?.addEventListener('click', () => {
+				document.getElementById('messageDialog')?.classList.add('hidden');
+				document.location.href = '/';
+			});
+		});
+	</script>
 </Layout>

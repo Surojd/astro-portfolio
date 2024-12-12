@@ -1,7 +1,6 @@
 ---
-import heroImage from '@assets/images/surojd.jpg';
+import heroImage from '@assets/images/surojd.webp';
 import { Icon } from 'astro-icon/components';
-import { Image } from 'astro:assets';
 import Next from './ui/Next.astro';
 ---
 
@@ -29,12 +28,10 @@ import Next from './ui/Next.astro';
 		</div>
 	</div>
 	<div data-testid="hero-img" class="mb-10 flex w-1/2 items-center justify-center">
-		<Image
-			src={heroImage}
+		<img
+			src={heroImage.src}
 			alt="Coding girl"
-			format="png"
-		
-			class='rounded-full  aspect-square'
+			class="aspect-square rounded-full"
 			loading="eager"
 		/>
 	</div>
