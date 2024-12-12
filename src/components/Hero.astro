@@ -1,5 +1,4 @@
 ---
-import heroImage from '@assets/images/surojd.webp';
 import { Icon } from 'astro-icon/components';
 import Next from './ui/Next.astro';
 ---
@@ -7,6 +6,7 @@ import Next from './ui/Next.astro';
 <section
 	data-testid="hero"
 	class="flex h-screen flex-col-reverse items-center justify-center text-center sm:flex-row"
+	id="home"
 >
 	<div class="mb-10 flex flex-col items-center sm:mb-0 sm:w-1/2">
 		<div>
@@ -29,9 +29,11 @@ import Next from './ui/Next.astro';
 	</div>
 	<div data-testid="hero-img" class="mb-10 flex w-1/2 items-center justify-center">
 		<img
-			src={heroImage.src}
+			src="/images/surojd.webp"
+			height="400"
+			width="400"
 			alt="Coding girl"
-			class="aspect-square rounded-full"
+			class="aspect-square w-auto rounded-full object-cover"
 			loading="eager"
 		/>
 	</div>

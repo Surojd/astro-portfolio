@@ -15,7 +15,7 @@ const projects = await getCollection('projects', ({ data }) => {
 >
 	<h2 class="font-monospace text-2xl text-orange lg:text-4xl pt-14">Projects</h2>
 	<span class="mb-10 h-1 w-10 bg-orange"></span>
-	<div class="mb-10 grid w-full grid-cols-auto-fit-3 gap-6 sm:grid-cols-auto-fit-6">
+	<div class="mb-10 grid w-full grid-cols-auto-fit-3 gap-3 md:grid-cols-auto-fit-6">
 		{
 			projects.reverse().map((project) => (
 				<Card

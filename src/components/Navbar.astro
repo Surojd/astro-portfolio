@@ -4,6 +4,10 @@ import { Astronav, MenuItems } from 'astro-navbar';
 
 const menuitems = [
 	{
+		title: 'Home',
+		path: '#home',
+	},
+	{
 		title: 'About',
 		path: '#about',
 	},
@@ -21,17 +25,16 @@ const menuitems = [
 	},
 ];
 const { nav } = Astro.props;
-
 ---
 
 <header
 	data-testId="header"
-	class="z-50 flex w-full flex-col items-center justify-between xs:flex xs:flex-row dark:bg-black bg-white py-2"
+	class="z-50 flex w-full flex-col items-center justify-between bg-white py-2 dark:bg-black xs:flex xs:flex-row"
 >
 	<Astronav>
-		<div></div>
-		<MenuItems class="w-full xs:mt-0 flex xs:w-auto justify-center">
-			<ul class="flex  flex-row gap-3 mx-2">
+		<div class="text-orange"></div>
+		<MenuItems class="flex w-full justify-center xs:mt-0 xs:w-auto">
+			<ul class="mx-2 flex flex-row gap-3">
 				{
 					menuitems.map((item) => (
 						<>
@@ -39,7 +42,7 @@ const { nav } = Astro.props;
 								<a
 									aria-label="navigation link"
 									href={item.path}
-									class="flex py-2 text-black hover:text-orange dark:text-white dark:hover:text-orange xs:px-3 focus-within:text-orange"
+									class="flex py-2 text-black focus-within:text-orange hover:text-orange dark:text-white dark:hover:text-orange xs:px-3"
 								>
 									{item.title}
 								</a>
@@ -47,8 +50,42 @@ const { nav } = Astro.props;
 						</>
 					))
 				}
-				<li class="grid"><ToggleTheme id={nav}/></li>
+				<li class="grid"><ToggleTheme id={nav} /></li>
 			</ul>
 		</MenuItems>
 	</Astronav>
+
+	<script is:inline>
+		document.addEventListener('DOMContentLoaded', () => {
+			const links = document.querySelectorAll('a[aria-label="navigation link"]');
+			const sections = Array.from(links).map((link) =>
+				document.querySelector(link.getAttribute('href'))
+			);
+
+			const updateActiveLink = () => {
+				let activeLink = null;
+				sections.forEach((section, index) => {
+					const rect = section.getBoundingClientRect();
+					if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+						activeLink = links[index].href;
+					}
+				});
+				links.forEach((link) => {
+					if (link.href === activeLink) {
+						link.classList.add('text-orange');
+						link.classList.add('dark:text-orange');
+						if (window.location.hash !== link.getAttribute('href')) {
+							history.replaceState(null, null, link.getAttribute('href'));
+						}
+					} else {
+						link.classList.remove('text-orange');
+						link.classList.remove('dark:text-orange');
+					}
+				});
+			};
+
+			window.addEventListener('scroll', updateActiveLink);
+			setTimeout(updateActiveLink, 2000);
+		});
+	</script>
 </header>
