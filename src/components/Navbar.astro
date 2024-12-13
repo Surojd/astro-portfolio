@@ -1,35 +1,42 @@
 ---
 import ToggleTheme from '@components/ui/ToggleTheme.astro';
+import { Icon } from 'astro-icon/components';
 import { Astronav, MenuItems } from 'astro-navbar';
 
 const menuitems = [
 	{
 		title: 'Home',
 		path: '#home',
+		icon: 'home-account',
 	},
 	{
 		title: 'About',
 		path: '#about',
+		icon: 'about-circle-outline',
 	},
 	{
 		title: 'Projects',
 		path: '#projects',
+		icon: 'work-outline',
 	},
 	{
 		title: 'Tech Stack',
 		path: '#tech',
+		icon: 'protected-outline',
 	},
 	{
 		title: 'Contact',
 		path: '#contact',
+		icon: 'contact-outline',
 	},
 ];
 const { nav } = Astro.props;
 ---
 
 <header
+	id={nav + '-nav'}
 	data-testId="header"
-	class="z-40 flex w-full flex-col items-center justify-between bg-white py-2 dark:bg-black xs:flex xs:flex-row"
+	class="flex w-full flex-col items-center justify-between bg-white py-2 dark:bg-black xs:flex xs:flex-row"
 >
 	<Astronav>
 		<div class="text-orange"></div>
@@ -44,7 +51,7 @@ const { nav } = Astro.props;
 									href={item.path}
 									class="flex py-2 text-black focus-within:text-orange hover:text-orange dark:text-white dark:hover:text-orange xs:px-3"
 								>
-									{item.title}
+									{nav === 'bottomnav' ? <Icon name={`mdi:${item.icon}`} size={36} /> : item.title}
 								</a>
 							</li>
 						</>
@@ -55,15 +62,19 @@ const { nav } = Astro.props;
 		</MenuItems>
 	</Astronav>
 
-	<script is:inline>
+	<script define:vars={{ nav }}>
 		document.addEventListener('DOMContentLoaded', () => {
 			let preActiveLink = null;
-			const links = document.querySelectorAll('a[aria-label="navigation link"]');
+			const links = document.querySelectorAll(`#${nav}-nav a[aria-label="navigation link"]`);
 			const sections = Array.from(links).map((link) =>
 				document.querySelector(link.getAttribute('href'))
 			);
 			const toggleClass = (found, isTrue) => {
 				found.classList.toggle('font-extrabold', isTrue);
+				if (nav === 'bottomnav') {
+					found.classList.toggle('text-orange', isTrue);
+					found.classList.toggle('dark:text-orange', isTrue);
+				}
 			};
 			const updateActiveLink = () => {
 				let activeLink = null;
