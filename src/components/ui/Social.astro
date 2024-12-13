@@ -8,65 +8,80 @@ const formActionURL = isProduction
 	: 'https://localapi.surojd.com.np/api/email/submit/5ftn3jRtXboSQsA9MtPNffZirUN87M';
 ---
 
-<!-- for email -->
-<a href="mailto:hire@surojd.com.np" target="_blank" rel="noopener" aria-label="email" title="Email">
-	<Icon class="h-8 w-full hover:text-orange dark:hover:text-orange md:h-12" name="mdi:email" />
-</a>
+<div class="grid w-full grid-cols-3 gap-4 sm:w-1/2 sm:grid-cols-auto-fit-1">
+	<!-- for email -->
+	<a
+		href="mailto:hire@surojd.com.np"
+		target="_blank"
+		rel="noopener"
+		aria-label="email"
+		title="Email"
+		class="grid place-items-center gap-2"
+	>
+		<Icon class="h-8 w-full hover:text-orange dark:hover:text-orange md:h-12" name="mdi:email" />
+		<span class="sm:hidden">Email</span>
+	</a>
 
-<a
-	href="https://www.linkedin.com/in/surojd/"
-	target="_blank"
-	rel="noopener"
-	aria-label="linkedin"
-	title="Linkedin"
-	><Icon
-		class="h-8 w-full hover:text-orange dark:hover:text-orange md:h-12"
-		name="mdi:linkedin"
-	/></a
->
-<!-- for upwork -->
+	<a
+		href="https://www.linkedin.com/in/surojd/"
+		target="_blank"
+		rel="noopener"
+		aria-label="linkedin"
+		title="Linkedin"
+		class="grid place-items-center gap-2"
+	>
+		<Icon class="h-8 w-full hover:text-orange dark:hover:text-orange md:h-12" name="mdi:linkedin" />
+		<span class="sm:hidden">Linkedin</span>
+	</a>
+	<!-- for upwork -->
 
-<a
-	href="https://www.upwork.com/freelancers/surojd"
-	target="_blank"
-	rel="noopener"
-	aria-label="upwork"
-	title="Upwork"
->
-	<Icon
-		name={'upwork-square'}
-		title={'Upwork'}
-		class="h-8 w-full p-1 hover:text-orange dark:hover:text-orange md:h-12"
-		size={50}
-	/>
-</a>
+	<a
+		href="https://www.upwork.com/freelancers/surojd"
+		target="_blank"
+		rel="noopener"
+		aria-label="upwork"
+		title="Upwork"
+		class="grid place-items-center gap-2"
+	>
+		<Icon
+			name={'upwork-square'}
+			title={'Upwork'}
+			class="h-8 w-full p-1 hover:text-orange dark:hover:text-orange md:h-12"
+			size={50}
+		/>
+		<span class="sm:hidden">Upwork</span>
+	</a>
 
-<!-- for facebook -->
-<a
-	href="https://www.facebook.com/surojdeveloper"
-	target="_blank"
-	rel="noopener"
-	title="Facebook"
-	aria-label="facebook"
-	><Icon
-		class="h-8 w-full hover:text-orange dark:hover:text-orange md:h-12"
-		name="mdi:facebook"
-	/></a
->
+	<!-- for facebook -->
+	<a
+		href="https://www.facebook.com/surojdeveloper"
+		target="_blank"
+		rel="noopener"
+		title="Facebook"
+		aria-label="facebook"
+		class="grid place-items-center gap-2"
+	>
+		<Icon class="h-8 w-full hover:text-orange dark:hover:text-orange md:h-12" name="mdi:facebook" />
+		<span class="sm:hidden">Facebook</span>
+	</a>
 
-<!-- For Whatsapp -->
-<a
-	href="https://wa.me/9779849199291"
-	target="_blank"
-	rel="noopener"
-	aria-label="whatsapp"
-	title="Whatsapp"
-	><Icon class="h-8 w-full hover:text-orange dark:hover:text-orange md:h-12" name="mdi:whatsapp" />
-</a>
-
-<!-- for Form -->
-<div class="cursor-pointer" id="formIcon" title="Form">
-	<Icon class="h-8 w-full hover:text-orange dark:hover:text-orange md:h-12" name="mdi:form" />
+	<!-- For Whatsapp -->
+	<a
+		href="https://wa.me/9779849199291"
+		target="_blank"
+		rel="noopener"
+		aria-label="whatsapp"
+		title="Whatsapp"
+		class="grid place-items-center gap-2"
+	>
+		<Icon class="h-8 w-full hover:text-orange dark:hover:text-orange md:h-12" name="mdi:whatsapp" />
+		<span class="sm:hidden">Whatsapp</span>
+	</a>
+	<!-- for Form -->
+	<div class="grid cursor-pointer place-items-center gap-2" id="formIcon" title="Form">
+		<Icon class="h-8 w-full hover:text-orange dark:hover:text-orange md:h-12" name="mdi:form" />
+		<span class="sm:hidden">Form</span>
+	</div>
 </div>
 
 <!-- Dialog Form -->
@@ -130,7 +145,6 @@ const formActionURL = isProduction
 		</form>
 	</div>
 </div>
-
 <script is:inline>
 	let url = 'https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit';
 	document.addEventListener('DOMContentLoaded', () => {

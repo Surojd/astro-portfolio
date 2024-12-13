@@ -13,20 +13,23 @@ const projects = await getCollection('projects', ({ data }) => {
 	id="projects"
 	class="relative mb-10 flex flex-col items-center justify-center md:mb-0"
 >
-	<h2 class="font-monospace text-2xl text-orange lg:text-4xl pt-14">Projects</h2>
+	<h2 class="pt-14 font-monospace text-2xl text-orange lg:text-4xl">Projects</h2>
 	<span class="mb-10 h-1 w-10 bg-orange"></span>
 	<div class="mb-10 grid w-full grid-cols-auto-fit-3 gap-3 md:grid-cols-auto-fit-6">
 		{
-			projects.reverse().map((project) => (
-				<Card
-					image={project.data.image}
-					url={project.data.link ?? '#'}
-					title={project.data.title}
-					description={project.data.description}
-					alt={project.data.img_alt}
-					tags={project.data.tags}
-				/>
-			))
+			projects
+				.reverse()
+				.map((project) => (
+					<Card
+						image={project.data.image}
+						// url={project.data.link ?? '#'}
+						url={`/projects/${project.data.title.toLowerCase().replace(/\s+/g, '-')}`}
+						title={project.data.title}
+						description={project.data.description}
+						alt={project.data.img_alt}
+						tags={project.data.tags}
+					/>
+				))
 		}
 	</div>
 	<Next url="#tech" text="Technologies" />

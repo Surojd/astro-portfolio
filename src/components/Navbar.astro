@@ -39,7 +39,7 @@ const { nav } = Astro.props;
 	class="flex w-full flex-col items-center justify-between bg-white py-2 dark:bg-black xs:flex xs:flex-row"
 >
 	<Astronav>
-		<div class="text-orange"></div>
+		<div></div>
 		<MenuItems class="flex w-full justify-center xs:mt-0 xs:w-auto">
 			<ul class="mx-2 flex flex-row gap-3">
 				{
@@ -48,8 +48,8 @@ const { nav } = Astro.props;
 							<li>
 								<a
 									aria-label="navigation link"
-									href={item.path}
-									class="flex py-2 text-black focus-within:text-orange hover:text-orange dark:text-white dark:hover:text-orange xs:px-3"
+									href={'/' + item.path}
+									class="flex py-2 text-black hover:text-orange dark:text-white dark:hover:text-orange xs:px-3"
 								>
 									{nav === 'bottomnav' ? <Icon name={`mdi:${item.icon}`} size={36} /> : item.title}
 								</a>
@@ -57,7 +57,7 @@ const { nav } = Astro.props;
 						</>
 					))
 				}
-				<li class="grid"><ToggleTheme id={nav} /></li>
+				<li class="grid"><ToggleTheme id={nav} size={nav === 'bottomnav' ? 36 : 24} /></li>
 			</ul>
 		</MenuItems>
 	</Astronav>
