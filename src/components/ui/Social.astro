@@ -1,13 +1,24 @@
 ---
+import Button from '@components/ui/Button.astro';
 import { Icon } from 'astro-icon/components';
+
+const isProduction = import.meta.env.PROD;
+const formActionURL = isProduction
+	? 'https://api.surojd.com.np/api/email/submit/5ftn3jRtXboSQsA9MtPNffZirUN87M'
+	: 'https://localapi.surojd.com.np/api/email/submit/5ftn3jRtXboSQsA9MtPNffZirUN87M';
 ---
 
 <!-- for email -->
-<a href="mailto:hire@surojd.com.np" target="_blank" rel="noopener" aria-label="email">
+<a href="mailto:hire@surojd.com.np" target="_blank" rel="noopener" aria-label="email" title="Email">
 	<Icon class="h-8 w-full hover:text-orange dark:hover:text-orange md:h-12" name="mdi:email" />
 </a>
 
-<a href="https://www.linkedin.com/in/surojd/" target="_blank" rel="noopener" aria-label="linkedin"
+<a
+	href="https://www.linkedin.com/in/surojd/"
+	target="_blank"
+	rel="noopener"
+	aria-label="linkedin"
+	title="Linkedin"
 	><Icon
 		class="h-8 w-full hover:text-orange dark:hover:text-orange md:h-12"
 		name="mdi:linkedin"
@@ -20,6 +31,7 @@ import { Icon } from 'astro-icon/components';
 	target="_blank"
 	rel="noopener"
 	aria-label="upwork"
+	title="Upwork"
 >
 	<Icon
 		name={'upwork-square'}
@@ -34,6 +46,7 @@ import { Icon } from 'astro-icon/components';
 	href="https://www.facebook.com/surojdeveloper"
 	target="_blank"
 	rel="noopener"
+	title="Facebook"
 	aria-label="facebook"
 	><Icon
 		class="h-8 w-full hover:text-orange dark:hover:text-orange md:h-12"
@@ -42,6 +55,116 @@ import { Icon } from 'astro-icon/components';
 >
 
 <!-- For Whatsapp -->
-<a href="https://wa.me/9779849199291" target="_blank" rel="noopener" aria-label="whatsapp"
+<a
+	href="https://wa.me/9779849199291"
+	target="_blank"
+	rel="noopener"
+	aria-label="whatsapp"
+	title="Whatsapp"
 	><Icon class="h-8 w-full hover:text-orange dark:hover:text-orange md:h-12" name="mdi:whatsapp" />
 </a>
+
+<!-- for Form -->
+<div class="cursor-pointer" aria-label="form" id="formIcon" title="Form">
+	<Icon class="h-8 w-full hover:text-orange dark:hover:text-orange md:h-12" name="mdi:form" />
+</div>
+
+<!-- Dialog Form -->
+<div
+	id="dialogForm"
+	class="fixed inset-0 z-50 hidden h-full w-full items-center justify-center place-self-center bg-black bg-opacity-50"
+>
+	<div
+		class="dark:bg-gray-800 w-fit rounded-lg border border-black bg-white p-6 shadow-lg dark:border-white dark:bg-black"
+	>
+		<form
+			id="contactForm"
+			action={formActionURL}
+			method="POST"
+			class="flex flex-col gap-4"
+			enctype="multipart/form-data"
+		>
+			<!-- close icon -->
+			<div class="grid place-items-end">
+				<Icon
+					id="closeDialog"
+					class="cursor-pointer text-orange hover:text-orange dark:hover:text-orange"
+					size={24}
+					name="mdi:close"
+				/>
+			</div>
+			<input name="to" type="hidden" value="surojsmiling@gmail.com" />
+			<label for="name">Name</label>
+			<input
+				type="text"
+				name="name"
+				id="name"
+				placeholder="Your name"
+				required
+				class="border-gray-300 dark:border-gray-700 rounded-md border p-2
+				dark:border-white dark:bg-black dark:text-black"
+			/>
+			<label for="email">Email</label>
+			<input
+				type="email"
+				name="email"
+				id="email"
+				placeholder="Your email"
+				required
+				class="border-gray-300 dark:border-gray-700 rounded-md border p-2
+				dark:border-white dark:bg-black dark:text-black"
+			/>
+			<label for="message">Message</label>
+			<textarea
+				name="message"
+				id="message"
+				placeholder="Your message"
+				required
+				class="border-gray-300 dark:border-gray-700 rounded-md border p-2
+				dark:border-white dark:bg-black dark:text-black"
+			></textarea>
+			<!-- <div class="g-recaptcha" data-sitekey="6LeaiwYqAAAAAEqmiYk1fKW_nOCqL2FuEAW1V9_2"></div> -->
+			<div id="recaptcha" class="g-recaptcha"></div>
+
+			<Button type="submit">Send</Button>
+		</form>
+	</div>
+</div>
+
+<script is:inline>
+	let url = 'https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit';
+	document.addEventListener('DOMContentLoaded', () => {
+		window.onloadCallback = function () {
+			let systemTheme = localStorage.getItem('theme');
+			window.grecaptcha.render('recaptcha', {
+				sitekey: '6LeaiwYqAAAAAEqmiYk1fKW_nOCqL2FuEAW1V9_2',
+				theme: systemTheme,
+			});
+		};
+
+		const formIcon = document.getElementById('formIcon');
+		const dialogForm = document.getElementById('dialogForm');
+		const closeDialog = document.getElementById('closeDialog');
+
+		formIcon.addEventListener('click', () => {
+			dialogForm.classList.remove('hidden');
+			dialogForm.classList.add('grid');
+			document.body.style.overflow = 'hidden';
+			if (!document.querySelector(`script[src="${url}"]`)) {
+				const script = document.createElement('script');
+				script.src = url;
+				script.async = true;
+				script.defer = true;
+				document.body.appendChild(script);
+			} else {
+			}
+		});
+
+		closeDialog.addEventListener('click', () => {
+			dialogForm.classList.add('hidden');
+			dialogForm.classList.remove('grid');
+			// enable scroll
+			document.body.style.overflow = 'auto';
+		});
+	});
+</script>

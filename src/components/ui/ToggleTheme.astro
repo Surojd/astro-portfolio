@@ -35,7 +35,7 @@ let theme = Astro.props.theme;
 <script define:vars={{ id }}>
 	document.addEventListener('DOMContentLoaded', function ready() {
 		const button = document.querySelector(`#${id}`);
-
+		let systemTheme = localStorage.getItem('theme');
 		const switchTheme = (theme) => {
 			if (theme === 'dark') {
 				button.checked = true;
@@ -47,18 +47,16 @@ let theme = Astro.props.theme;
 				localStorage.setItem('theme', 'light');
 			}
 		};
-
 		// Determine the system theme setting at the start
-		const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-			? 'dark'
-			: 'light';
+		if (systemTheme === null)
+			systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
 		// Apply the system theme on load
 		switchTheme(systemTheme);
 
 		button.addEventListener('click', () => {
-			const currentTheme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
-			switchTheme(currentTheme);
+			systemTheme = systemTheme === 'dark' ? 'light' : 'dark';
+			switchTheme(systemTheme);
 		});
 	});
 </script>

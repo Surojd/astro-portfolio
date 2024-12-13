@@ -29,7 +29,7 @@ const { nav } = Astro.props;
 
 <header
 	data-testId="header"
-	class="z-50 flex w-full flex-col items-center justify-between bg-white py-2 dark:bg-black xs:flex xs:flex-row"
+	class="z-40 flex w-full flex-col items-center justify-between bg-white py-2 dark:bg-black xs:flex xs:flex-row"
 >
 	<Astronav>
 		<div class="text-orange"></div>
@@ -57,11 +57,14 @@ const { nav } = Astro.props;
 
 	<script is:inline>
 		document.addEventListener('DOMContentLoaded', () => {
+			let preActiveLink = null;
 			const links = document.querySelectorAll('a[aria-label="navigation link"]');
 			const sections = Array.from(links).map((link) =>
 				document.querySelector(link.getAttribute('href'))
 			);
-
+			const toggleClass = (found, isTrue) => {
+				found.classList.toggle('font-extrabold', isTrue);
+			};
 			const updateActiveLink = () => {
 				let activeLink = null;
 				sections.forEach((section, index) => {
@@ -70,18 +73,22 @@ const { nav } = Astro.props;
 						activeLink = links[index].href;
 					}
 				});
-				links.forEach((link) => {
-					if (link.href === activeLink) {
-						link.classList.add('text-orange');
-						link.classList.add('dark:text-orange');
-						if (window.location.hash !== link.getAttribute('href')) {
-							history.replaceState(null, null, link.getAttribute('href'));
-						}
-					} else {
-						link.classList.remove('text-orange');
-						link.classList.remove('dark:text-orange');
+
+				let found;
+				for (let i = 0; i < links.length; i++) {
+					if (links[i].href === activeLink) {
+						found = links[i];
+						break; // Exit the loop once the active link is found
 					}
-				});
+				}
+				if (!found || preActiveLink?.href === found?.href) return;
+
+				history.replaceState(null, null, activeLink);
+				toggleClass(found, true);
+				if (preActiveLink && preActiveLink !== found) {
+					toggleClass(preActiveLink, false);
+				}
+				preActiveLink = found;
 			};
 
 			window.addEventListener('scroll', updateActiveLink);
