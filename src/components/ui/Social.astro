@@ -97,12 +97,11 @@ const formActionURL = isProduction
 			action={formActionURL}
 			method="POST"
 			class="flex flex-col gap-4"
-			enctype="multipart/form-data"
 		>
 			<!-- close icon -->
 			<div class="grid place-items-end">
 				<Icon
-					id="closeDialog"
+					id="closeForm"
 					class="cursor-pointer text-orange hover:text-orange dark:hover:text-orange"
 					size={24}
 					name="mdi:close"
@@ -117,7 +116,7 @@ const formActionURL = isProduction
 				placeholder="Your name"
 				required
 				class="border-gray-300 dark:border-gray-700 rounded-md border p-2
-				dark:border-white dark:bg-black dark:text-black"
+				dark:border-white dark:bg-black dark:text-white"
 			/>
 			<label for="email">Email</label>
 			<input
@@ -127,7 +126,7 @@ const formActionURL = isProduction
 				placeholder="Your email"
 				required
 				class="border-gray-300 dark:border-gray-700 rounded-md border p-2
-				dark:border-white dark:bg-black dark:text-black"
+				dark:border-white dark:bg-black dark:text-white"
 			/>
 			<label for="message">Message</label>
 			<textarea
@@ -136,7 +135,7 @@ const formActionURL = isProduction
 				placeholder="Your message"
 				required
 				class="border-gray-300 dark:border-gray-700 rounded-md border p-2
-				dark:border-white dark:bg-black dark:text-black"
+				dark:border-white dark:bg-black dark:text-white"
 			></textarea>
 			<!-- <div class="g-recaptcha" data-sitekey="6LeaiwYqAAAAAEqmiYk1fKW_nOCqL2FuEAW1V9_2"></div> -->
 			<div id="recaptcha" class="g-recaptcha"></div>
@@ -158,7 +157,7 @@ const formActionURL = isProduction
 
 		const formIcon = document.getElementById('formIcon');
 		const dialogForm = document.getElementById('dialogForm');
-		const closeDialog = document.getElementById('closeDialog');
+		const closeForm = document.getElementById('closeForm');
 
 		formIcon.addEventListener('click', () => {
 			dialogForm.classList.remove('hidden');
@@ -174,7 +173,7 @@ const formActionURL = isProduction
 			}
 		});
 
-		closeDialog.addEventListener('click', () => {
+		closeForm.addEventListener('click', () => {
 			dialogForm.classList.add('hidden');
 			dialogForm.classList.remove('grid');
 			// enable scroll

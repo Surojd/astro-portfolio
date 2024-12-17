@@ -67,13 +67,16 @@ const { nav } = Astro.props;
 			let preActiveLink = null;
 			const links = document.querySelectorAll(`#${nav}-nav a[aria-label="navigation link"]`);
 			const sections = Array.from(links).map((link) =>
-				document.querySelector(link.getAttribute('href'))
+				document.querySelector(link.getAttribute('href').replace("/",""))
 			);
 			const toggleClass = (found, isTrue) => {
 				found.classList.toggle('font-extrabold', isTrue);
 				if (nav === 'bottomnav') {
 					found.classList.toggle('text-orange', isTrue);
 					found.classList.toggle('dark:text-orange', isTrue);
+					
+				found.classList.toggle('text-black', !isTrue);
+				found.classList.toggle('dark:text-white', !isTrue);
 				}
 			};
 			const updateActiveLink = () => {
