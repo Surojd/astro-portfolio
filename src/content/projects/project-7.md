@@ -8,8 +8,6 @@ link: https://www.ariasys.co/
 tags: ['Spring Boot', 'OpenAI', 'Java 17', 'AWS', 'Docker']
 ---
 
-## ariasys
-
 ariasys is an innovative AI-powered software designed to simplify project development by effortlessly generating S-Curves from data across Engineering, Procurement, Construction, and Project Management phases. This platform leverages advanced AI technologies to provide accurate and insightful project analytics, enabling project managers to make informed decisions and optimize project performance.
 
 ### Key Features

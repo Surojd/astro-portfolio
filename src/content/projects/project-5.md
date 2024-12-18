@@ -8,8 +8,6 @@ link: https://studentsemploymentservices.com.au/
 tags: ['Java', 'Spring Boot', 'Flutter', 'Android']
 ---
 
-## Students Employment Services
-
 Students Employment Services is a comprehensive job listing platform designed to connect students with potential employers. This platform provides a user-friendly interface for students to search for job opportunities, apply for positions, and manage their employment applications. Built with modern web and mobile technologies, Students Employment Services ensures a seamless and efficient experience for both students and employers.
 
 ### Key Features

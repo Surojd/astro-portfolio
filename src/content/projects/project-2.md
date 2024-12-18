@@ -6,9 +6,7 @@ image: ../images/sim.webp
 img_alt: project image alt text
 link: https://sim.bloomers.com.np/
 tags: ['ReactJS', 'MaterialUI', 'Spring Boot']
----
-
-## SIM Management System
+--- 
 
 The SIM Management System is a comprehensive platform designed to streamline the management of SIM card dealers and user details. This system provides an efficient way to collect, store, and manage information related to SIM card distribution and user registration. Built with modern web technologies, the SIM Management System ensures a seamless and user-friendly experience for administrators and users alike.
 

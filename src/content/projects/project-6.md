@@ -8,8 +8,6 @@ link: https://passwordgenerator.surojd.com.np/
 tags: ['ReactJS']
 ---
 
-## Password Generator
-
 The Password Generator is a simple yet powerful tool designed to help users create strong and secure passwords. This application provides a user-friendly interface for generating passwords with customizable options to meet various security requirements. Built with modern web technologies, the Password Generator ensures a seamless and efficient experience for users.
 
 ### Key Features

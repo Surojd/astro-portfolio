@@ -8,8 +8,6 @@ link: https://gsewa.com.np/
 tags: ['Java', 'Spring Boot', 'React', 'CSS', 'JS']
 ---
 
-## GSewa
-
 GSewa is a robust digital wallet platform designed to provide users with a seamless and secure way to manage their finances. With GSewa, users can perform a variety of financial transactions, including money transfers, bill payments, and online purchases. Built with modern web technologies, GSewa ensures a user-friendly experience and high performance.
 
 ### Key Features

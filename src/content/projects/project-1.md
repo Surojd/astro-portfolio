@@ -8,8 +8,6 @@ link: https://uffride.com/
 tags: ['React', 'CSS', 'JS']
 ---
 
-## Uffride Admin
-
 Uffride Admin is a comprehensive admin dashboard designed to manage and monitor various aspects of the Uffride ride-sharing platform. It provides a user-friendly interface for administrators to oversee operations, manage users, and analyze data. Built with modern web technologies, Uffride Admin ensures a seamless and efficient experience for administrators.
 
 ### Key Features
