@@ -6,13 +6,6 @@ image: ../images/uffride.webp
 img_alt: Screenshot of Uffride Admin dashboard
 link: https://uffride.com/
 tags: ['React', 'CSS', 'JS']
----inProgress: false
-title: Uffride Admin
-description: Ride Sharing
-image: ../images/uffride.webp
-img_alt: Screenshot of Uffride Admin dashboard
-link: https://uffride.com/
-tags: ['React', 'CSS', 'JS']
 ---
 
 ## Uffride Admin

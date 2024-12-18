@@ -8,7 +8,7 @@ const formActionURL = isProduction
 	: 'https://localapi.surojd.com.np/api/email/submit/5ftn3jRtXboSQsA9MtPNffZirUN87M';
 ---
 
-<div class="grid w-full grid-cols-3 gap-4 sm:w-1/2 sm:grid-cols-auto-fit-1">
+<div class="grid w-full grid-cols-auto-fit-2 gap-4 ">
 	<!-- for email -->
 	<a
 		href="mailto:hire@surojd.com.np"
@@ -92,12 +92,7 @@ const formActionURL = isProduction
 	<div
 		class="dark:bg-gray-800 w-fit rounded-lg border border-black bg-white p-6 shadow-lg dark:border-white dark:bg-black"
 	>
-		<form
-			id="contactForm"
-			action={formActionURL}
-			method="POST"
-			class="flex flex-col gap-4"
-		>
+		<form id="contactForm" action={formActionURL} method="POST" class="flex flex-col gap-4">
 			<!-- close icon -->
 			<div class="grid place-items-end">
 				<Icon
@@ -116,7 +111,7 @@ const formActionURL = isProduction
 				placeholder="Your name"
 				required
 				class="border-gray-300 dark:border-gray-700 rounded-md border p-2
-				dark:border-white dark:bg-black "
+				dark:border-white dark:bg-black"
 			/>
 			<label for="email">Email</label>
 			<input
@@ -126,7 +121,7 @@ const formActionURL = isProduction
 				placeholder="Your email"
 				required
 				class="border-gray-300 dark:border-gray-700 rounded-md border p-2
-				dark:border-white dark:bg-black "
+				dark:border-white dark:bg-black"
 			/>
 			<label for="message">Message</label>
 			<textarea
@@ -135,7 +130,7 @@ const formActionURL = isProduction
 				placeholder="Your message"
 				required
 				class="border-gray-300 dark:border-gray-700 rounded-md border p-2
-				dark:border-white dark:bg-black "
+				dark:border-white dark:bg-black"
 			></textarea>
 			<!-- <div class="g-recaptcha" data-sitekey="6LeaiwYqAAAAAEqmiYk1fKW_nOCqL2FuEAW1V9_2"></div> -->
 			<div id="recaptcha" class="g-recaptcha"></div>

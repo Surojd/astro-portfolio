@@ -18,27 +18,54 @@ if (!project) {
 }
 ---
 
-<Layout title={project.data.title} page={2}>
-	<main class="container mx-auto min-h-screen p-4">
-		<h1 class="text-center text-4xl font-bold">
-			{project.data.title}
-		</h1>
-		<a
-			href={project.data.link}
-			target="_blank"
-			class="inline-block w-full pb-8 text-center text-xs hover:text-orange"
-		>
-			Visit Website
-		</a>
-		<div class="mb-4 flex flex-col-reverse items-start md:flex-row">
+<Layout
+	meta={{
+		title: project.data.title,
+		description: project.data.description,
+		image: project.data.image,
+		url: `https://surojd.com.np/projects/${project.data.title.toLowerCase().replace(/\s+/g, '-')}`,
+	}}
+	title={project.data.title}
+	page={2}
+>
+	<div class="relative flex flex-col md:flex-row">
+		<main class="container mx-auto min-h-screen p-4">
+			<h1 class="text-center text-4xl font-bold">
+				{project.data.title}
+			</h1>
+			<a
+				href={project.data.link}
+				target="_blank"
+				class="inline-block w-full pb-8 text-center text-xs hover:text-orange"
+			>
+				Visit Website
+			</a>
 			<Image
 				class="mb-2 mr-2 inline-block w-full md:w-1/3"
 				src={project.data.image}
 				alt={project.data.img_alt || project.data.title}
 			/>
 			<div class="mb-2 whitespace-pre-line" set:html={project.rendered?.html} />
-			<!-- print render html -->
-		</div>
-		<Tags tags={project.data.tags} />
-	</main>
+			<Tags tags={project.data.tags} />
+		</main>
+		<sidebar class="relative w-full md:w-80">
+			<div class="sticky top-20 flex flex-col items-center">
+				<h2 class="text-2xl font-bold">More Projects</h2>
+				<ul>
+					{
+						projects.map((p) => (
+							<li class="  text-sm hover:text-orange" title={p.data.title}>
+								<a
+									class="inline-block w-full border-black py-2 text-center dark:border-white md:text-left"
+									href={`/projects/${p.data.title.toLowerCase().replace(/\s+/g, '-')}`}
+								>
+									{p.data.title}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</sidebar>
+	</div>
 </Layout>

@@ -1,28 +1,55 @@
 ---
+import Contact from '@components/Contact.astro';
 import Footer from '@components/Footer.astro';
 import Navbar from '@components/Navbar.astro';
+import BackToTop from '@components/ui/BackToTop.astro';
 import { SEO } from 'astro-seo';
 
 export interface LayoutProps {
 	title: string;
 	page: number;
+	meta?: {
+		title: string;
+		description: string;
+		image: any;
+		url: string;
+	};
 }
 
-let { title, page } = Astro.props as LayoutProps;
+let { title, page, meta } = Astro.props as LayoutProps;
 if (title === undefined) {
 	title = 'Suroj Dangol | Java developer';
 } else {
 	title = title + ' | Suroj Dangol';
 }
+const description =
+	meta?.description ??
+	'I am a Java developer with 8 years of experience in developing web applications. I am also a full-stack developer with experience in front-end technologies like React, Angular, and Vue.js. I have worked on various projects ranging from small to large-scale applications. I am passionate about learning new technologies and always looking for ways to improve my skills. I am currently looking for new opportunities to work on exciting projects and grow as a developer.';
 ---
 
 <!doctype html>
 <html lang="en" class="scroll-smooth" data-testid="html">
 	<head>
-		<SEO
-			title={title}
-			description="I am a Java developer with 8 years of experience in developing web applications. I am also a full-stack developer with experience in front-end technologies like React, Angular, and Vue.js. I have worked on various projects ranging from small to large-scale applications. I am passionate about learning new technologies and always looking for ways to improve my skills. I am currently looking for new opportunities to work on exciting projects and grow as a developer."
+		<SEO title={title} description={description} />
+		<meta name="author" content="Suroj Dangol" />
+		<meta
+			name="keywords"
+			content="Java, developer, Flutter, Spring Boot, full-stack, web, mobile, applications, React"
 		/>
+		<meta name="theme-color" content="#000000" />
+		<meta name="robots" content="index, follow" />
+		<meta name="googlebot" content="index, follow" />
+		<meta name="bingbot" content="index, follow" />
+		<meta name="yandex" content="index, follow" />
+		<meta name="referrer" content="no-referrer-when-downgrade" />
+		<meta name="format-detection" content="telephone=no" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Suroj Dangol" />
+		<meta property="og:title" content={meta?.title ?? title} />
+		<meta property="og:description" content={meta?.description ?? description} />
+		<meta property="og:image" content={meta?.image.src ?? '/surojd.jpg'} />
+		<meta property="og:url" content={meta?.url ?? 'https://surojd.com.np/'} />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -38,6 +65,9 @@ if (title === undefined) {
 			<Navbar nav="topnav" page={page} />
 		</div>
 		<slot />
+
+		<Contact />
+		<BackToTop />
 		<Footer />
 		<div class="show sticky bottom-0 z-40 sm:hidden">
 			<Navbar nav="bottomnav" page={page} />
