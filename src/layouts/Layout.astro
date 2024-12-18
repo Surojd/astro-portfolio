@@ -9,28 +9,53 @@ export interface LayoutProps {
 	title: string;
 	page: number;
 	meta?: {
-		title: string;
 		description: string;
 		image: any;
 		url: string;
 	};
 }
 
-let { title, page, meta } = Astro.props as LayoutProps;
-if (title === undefined) {
-	title = 'Suroj Dangol | Java developer';
-} else {
-	title = title + ' | Suroj Dangol';
-}
+let { title = 'Java developer', page, meta } = Astro.props as LayoutProps;
 const description =
 	meta?.description ??
 	'I am a Java developer with 8 years of experience in developing web applications. I am also a full-stack developer with experience in front-end technologies like React, Angular, and Vue.js. I have worked on various projects ranging from small to large-scale applications. I am passionate about learning new technologies and always looking for ways to improve my skills. I am currently looking for new opportunities to work on exciting projects and grow as a developer.';
+
+const imageUrl = 'https://surojd.com.np' + (meta?.image.src ?? '/surojd.jpg');
+const url = meta?.url ?? 'https://surojd.com.np/';
 ---
 
 <!doctype html>
 <html lang="en" class="scroll-smooth" data-testid="html">
 	<head>
-		<SEO title={title} description={description} />
+		<SEO
+			titleTemplate="%s - Suroj Dangol"
+			title={title}
+			description={description}
+			canonical={url}
+			openGraph={{
+				basic: {
+					title: title,
+					type: 'website',
+					image: imageUrl,
+					url: url,
+				},
+				image: {
+					alt: title,
+					height: 800,
+					width: 800,
+					url: imageUrl,
+				},
+			}}
+			twitter={{
+				card: 'summary_large_image',
+				site: '@SurojDangol',
+				creator: '@SurojDangol',
+				title: title,
+				description: description,
+				image: imageUrl,
+				imageAlt: title,
+			}}
+		/>
 		<meta name="author" content="Suroj Dangol" />
 		<meta
 			name="keywords"
@@ -43,20 +68,12 @@ const description =
 		<meta name="yandex" content="index, follow" />
 		<meta name="referrer" content="no-referrer-when-downgrade" />
 		<meta name="format-detection" content="telephone=no" />
-
-		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content="Suroj Dangol" />
-		<meta property="og:title" content={meta?.title ?? title} />
-		<meta property="og:description" content={meta?.description ?? description} />
-		<meta property="og:image" content={meta?.image.src ?? '/surojd.jpg'} />
-		<meta property="og:url" content={meta?.url ?? 'https://surojd.com.np/'} />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-		<title>{title}</title>
 	</head>
 	<body
 		class="mx-auto max-w-screen-xl bg-white font-sans text-black dark:bg-black dark:text-white xs:text-[16px] md:text-[18px]"

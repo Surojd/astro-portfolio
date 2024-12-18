@@ -20,7 +20,6 @@ if (!project) {
 
 <Layout
 	meta={{
-		title: project.data.title,
 		description: project.data.description,
 		image: project.data.image,
 		url: `https://surojd.com.np/projects/${project.data.title.toLowerCase().replace(/\s+/g, '-')}`,
@@ -40,15 +39,15 @@ if (!project) {
 			>
 				Visit Website
 			</a>
-			<Image
-				class="mb-2 mr-2 inline-block w-full md:w-1/3"
-				src={project.data.image}
-				alt={project.data.img_alt || project.data.title}
-			/>
 			<div class="mb-2 whitespace-pre-line" set:html={project.rendered?.html} />
 			<Tags tags={project.data.tags} />
 		</main>
 		<sidebar class="relative w-full md:w-80">
+			<Image
+				class="mb-2 mr-2 inline-block w-full"
+				src={project.data.image}
+				alt={project.data.img_alt || project.data.title}
+			/>
 			<div class="sticky top-20 flex flex-col items-center">
 				<h2 class="text-2xl font-bold">More Projects</h2>
 				<ul>
