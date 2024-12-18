@@ -30,7 +30,8 @@ const menuitems = [
 		icon: 'contact-outline',
 	},
 ];
-const { nav } = Astro.props;
+const { nav, page=-1 } = Astro.props;
+const isBottomNav = nav === 'bottomnav';
 ---
 
 <header
@@ -43,40 +44,39 @@ const { nav } = Astro.props;
 		<MenuItems class="flex w-full justify-center xs:mt-0 xs:w-auto">
 			<ul class="mx-2 flex flex-row gap-3">
 				{
-					menuitems.map((item) => (
-						<>
+					menuitems.map((item,index) => {
+					const addClass =  page == index ?'text-orange dark:text-orange' : '';
+
+					return	<>
 							<li>
 								<a
 									aria-label="navigation link"
 									href={'/' + item.path}
-									class="flex py-2 text-black hover:text-orange dark:text-white dark:hover:text-orange xs:px-3"
+									class={`flex py-2  hover:text-orange   dark:hover:text-orange xs:px-3 ${addClass}`}
 								>
 									{nav === 'bottomnav' ? <Icon name={`mdi:${item.icon}`} size={36} /> : item.title}
 								</a>
 							</li>
 						</>
-					))
+					})
 				}
-				<li class="grid"><ToggleTheme id={nav} size={nav === 'bottomnav' ? 36 : 24} /></li>
+				<li class="grid"><ToggleTheme id={nav} size={isBottomNav ? 36 : 24} /></li>
 			</ul>
 		</MenuItems>
 	</Astronav>
-
-	<script define:vars={{ nav }}>
+{page == -1 &&
+	<script define:vars={{ nav ,isBottomNav }}>
 		document.addEventListener('DOMContentLoaded', () => {
 			let preActiveLink = null;
 			const links = document.querySelectorAll(`#${nav}-nav a[aria-label="navigation link"]`);
 			const sections = Array.from(links).map((link) =>
-				document.querySelector(link.getAttribute('href').replace("/",""))
+				document.querySelector(link.getAttribute('href').replace('/', ''))
 			);
 			const toggleClass = (found, isTrue) => {
 				found.classList.toggle('font-extrabold', isTrue);
-				if (nav === 'bottomnav') {
+				if (isBottomNav) {
 					found.classList.toggle('text-orange', isTrue);
 					found.classList.toggle('dark:text-orange', isTrue);
-					
-				found.classList.toggle('text-black', !isTrue);
-				found.classList.toggle('dark:text-white', !isTrue);
 				}
 			};
 			const updateActiveLink = () => {
@@ -108,5 +108,5 @@ const { nav } = Astro.props;
 			window.addEventListener('scroll', updateActiveLink);
 			setTimeout(updateActiveLink, 2000);
 		});
-	</script>
+	</script>}
 </header>

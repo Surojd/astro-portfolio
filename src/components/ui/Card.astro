@@ -1,10 +1,11 @@
 ---
 import projectImage from '@assets/images/project.webp';
 import Tags from '@components/ui/Tags.astro';
+import { Image } from 'astro:assets';
 
 interface Props {
 	url?: string;
-	image?: string;
+	image?: any;
 	alt?: string;
 	title?: string;
 	description: string;
@@ -14,7 +15,7 @@ interface Props {
 
 const {
 	url = '#',
-	image = projectImage.src,
+	image = projectImage,
 	alt = 'Project image',
 	description = 'Project Description',
 	title = 'Project title',
@@ -26,19 +27,20 @@ const {
 	data-testId="card"
 	class="rounded-xl bg-white p-3 shadow-lg duration-100 hover:scale-105 hover:transform hover:shadow-xl dark:bg-opacity-45"
 >
-	<a href={url} aria-label="link to project" target="_blank">
+	<a href={url} aria-label="link to project" >
 		<div class="relative flex items-end overflow-hidden rounded-xl">
-			<img src={image.toString()} alt={alt} loading="lazy" />
+			<!-- <img src={image.toString()} alt={alt} loading="lazy" /> -->
+			<Image src={image} alt={alt} widths={[400, 600, image.width]} />
 		</div>
 		<div class="mt-1 p-2">
 			<h3
-				class="sm:text-md overflow-hidden overflow-ellipsis whitespace-nowrap text-lg text-black hover:overflow-visible dark:text-white lg:text-xl"
+				class="sm:text-md overflow-hidden overflow-ellipsis whitespace-nowrap text-lg hover:overflow-visible  lg:text-xl"
 				title={title}
 			>
 				{title}
 			</h3>
 			<p
-				class="overflow-hidden overflow-ellipsis whitespace-nowrap text-xs text-black dark:text-white  sm:text-sm"
+				class="overflow-hidden overflow-ellipsis whitespace-nowrap text-xs  sm:text-sm"
 			>
 				{description}
 			</p>
@@ -46,4 +48,3 @@ const {
 		</div>
 	</a>
 </article>
-

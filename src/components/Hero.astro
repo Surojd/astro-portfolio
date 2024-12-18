@@ -1,6 +1,8 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Next from './ui/Next.astro';
+import { Image } from 'astro:assets';
+import surojd from '@assets/images/surojd.jpg';
 ---
 
 <section
@@ -10,7 +12,7 @@ import Next from './ui/Next.astro';
 >
 	<div class="mb-10 flex flex-col items-center sm:mb-0 sm:w-1/2">
 		<div>
-			<h1 class="mb-10 font-monospace text-3xl text-black dark:text-white md:text-4xl lg:text-5xl">
+			<h1 class="mb-10 font-monospace text-3xl  md:text-4xl lg:text-5xl">
 				Hi! My name is <span class="text-orange">Suroj Dangol</span> and I am a Full Stack developer
 				based in Nepal.
 			</h1>
@@ -20,7 +22,7 @@ import Next from './ui/Next.astro';
 
 			<a href="https://github.com/Surojd" target="_blank" rel="noopener" aria-label="github"
 				><Icon
-					class="h-8 text-black hover:text-orange dark:text-white dark:hover:text-orange md:h-12"
+					class="h-8 hover:text-orange  dark:hover:text-orange md:h-12"
 					name="mdi:github"
 					size={100}
 				/></a
@@ -28,13 +30,12 @@ import Next from './ui/Next.astro';
 		</div>
 	</div>
 	<div data-testid="hero-img" class="mb-10 flex w-1/2 items-center justify-center">
-		<img
-			src="/images/surojd.webp"
-			height="400"
-			width="400"
+		<Image
+			src={surojd}
 			alt="Suroj Dangol"
 			class="aspect-square w-auto rounded-full object-cover"
 			loading="eager"
+			widths={[400, 600, 800, surojd.width]}
 		/>
 	</div>
 	<Next url="#about" />

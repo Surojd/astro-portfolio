@@ -10,7 +10,6 @@
 
 ✔️ Uses the following integrations:
 
-- @astrojs/image
 - @astrojs/mdx
 - @astrojs/tailwind
 - @astrojs/ts-plugin

@@ -5,9 +5,10 @@ import { SEO } from 'astro-seo';
 
 export interface LayoutProps {
 	title: string;
+	page: number;
 }
 
-let { title } = Astro.props as LayoutProps;
+let { title, page } = Astro.props as LayoutProps;
 if (title === undefined) {
 	title = 'Suroj Dangol | Java developer';
 } else {
@@ -31,15 +32,15 @@ if (title === undefined) {
 		<title>{title}</title>
 	</head>
 	<body
-		class="mx-auto max-w-screen-xl bg-white font-sans text-white dark:bg-black xs:text-[16px] md:text-[18px]"
+		class="mx-auto max-w-screen-xl bg-white font-sans text-black dark:bg-black dark:text-white xs:text-[16px] md:text-[18px]"
 	>
 		<div class="sticky top-0 z-40 hidden sm:block">
-			<Navbar nav="topnav" />
+			<Navbar nav="topnav" page={page} />
 		</div>
 		<slot />
 		<Footer />
 		<div class="show sticky bottom-0 z-40 sm:hidden">
-			<Navbar nav="bottomnav" />
+			<Navbar nav="bottomnav" page={page} />
 		</div>
 
 		<style is:global>

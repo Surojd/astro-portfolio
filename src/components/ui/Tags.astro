@@ -10,7 +10,7 @@ const { tags } = Astro.props;
 	tags && (
 		<div class="mt-1 flex flex-row flex-wrap justify-between gap-1 ">
 			{tags.map((tag) => (
-				<span class="inline-block rounded text-xs text-black dark:text-white">#{tag}</span>
+				<span class="inline-block rounded text-xs ">#{tag}</span>
 			))}
 		</div>
 	)
