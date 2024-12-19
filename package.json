@@ -8,7 +8,8 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"test": "playwright test"
+		"test": "playwright test",
+		"local": "astro build &&http-server dist --gzip --brotli"
 	},
 	"dependencies": {
 		"@astrojs/mdx": "^4.0.2",

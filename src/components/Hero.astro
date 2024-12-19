@@ -1,9 +1,23 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Next from './ui/Next.astro';
-import { Image } from 'astro:assets';
+import { getImage, Image } from 'astro:assets';
 import surojd from '@assets/images/surojd.jpg';
+const image = await getImage({
+	src: surojd,
+	widths: [400, 600, 800, 1600, ],//surojd.width],
+	format: 'webp',
+	alt: 'Suroj Dangol',
+});
 ---
+
+<Fragment slot="head">
+	{
+		image.srcSet.values.map((item, i) => (
+			<link rel={i === 0 ? 'preload' : 'prefetch'} href={item.url} as="image" />
+		))
+	}
+</Fragment>
 
 <section
 	data-testid="hero"
@@ -12,7 +26,7 @@ import surojd from '@assets/images/surojd.jpg';
 >
 	<div class="mb-10 flex flex-col items-center sm:mb-0 sm:w-1/2">
 		<div>
-			<h1 class="mb-10 font-monospace text-3xl  md:text-4xl lg:text-5xl">
+			<h1 class="mb-10 font-monospace text-3xl md:text-4xl lg:text-5xl">
 				Hi! My name is <span class="text-orange">Suroj Dangol</span> and I am a Full Stack developer
 				based in Nepal.
 			</h1>
@@ -22,7 +36,7 @@ import surojd from '@assets/images/surojd.jpg';
 
 			<a href="https://github.com/Surojd" target="_blank" rel="noopener" aria-label="github"
 				><Icon
-					class="h-8 hover:text-orange  dark:hover:text-orange md:h-12"
+					class="h-8 hover:text-orange dark:hover:text-orange md:h-12"
 					name="mdi:github"
 					size={100}
 				/></a
@@ -33,9 +47,11 @@ import surojd from '@assets/images/surojd.jpg';
 		<Image
 			src={surojd}
 			alt="Suroj Dangol"
-			class="aspect-square w-auto rounded-full object-cover"
+			class="aspect-square rounded-full object-cover"
 			loading="eager"
-			widths={[400, 600, 800, surojd.width]}
+			widths={[400, 600, 800, 1600]}
+			height={400}
+			width={400}
 		/>
 	</div>
 	<Next url="#about" />

@@ -4,9 +4,25 @@ import Hero from '@components/Hero.astro';
 import Projects from '@components/Projects.astro';
 import TechnologyStack from '@components/TechnologyStack.astro';
 import Layout from '@layouts/Layout.astro';
+
+import surojd from '@assets/images/surojd.jpg';
+import { getImage } from 'astro:assets';
+const image = await getImage({
+	src: surojd,
+	widths: [400, 600, 800, surojd.width],
+	format: 'webp',
+	alt: 'Suroj Dangol',
+});
 ---
 
 <Layout>
+	<!-- <Fragment slot="head">
+		{
+			image.srcSet.values.map((item, i) => (
+				<link rel={i === 0 ? 'preload' : 'prefetch'} href={item.url} as="image" />
+			))
+		}
+	</Fragment> -->
 	<main>
 		<Hero />
 		<About />

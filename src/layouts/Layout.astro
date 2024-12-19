@@ -73,7 +73,7 @@ const url = meta?.url ?? 'https://surojd.com.np/';
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
+		<slot name="head" />
 	</head>
 	<body
 		class="mx-auto max-w-screen-xl bg-white font-sans text-black dark:bg-black dark:text-white xs:text-[16px] md:text-[18px]"
@@ -82,7 +82,6 @@ const url = meta?.url ?? 'https://surojd.com.np/';
 			<Navbar nav="topnav" page={page} />
 		</div>
 		<slot />
-
 		<Contact />
 		<BackToTop />
 		<Footer />
