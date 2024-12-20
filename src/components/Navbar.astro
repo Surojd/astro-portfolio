@@ -5,22 +5,22 @@ import { Icon } from 'astro-icon/components';
 const menuitems = [
 	{
 		title: 'Home',
-		path: '#home',
+		path: '/#home',
 		icon: 'home-account',
 	},
 	{
 		title: 'About',
-		path: '#about',
+		path: '/#about',
 		icon: 'about-circle-outline',
 	},
 	{
 		title: 'Projects',
-		path: '#projects',
+		path: '/#projects',
 		icon: 'work-outline',
 	},
 	{
 		title: 'Tech Stack',
-		path: '#tech',
+		path: '/#tech',
 		icon: 'protected-outline',
 	},
 	{
@@ -46,7 +46,7 @@ const { nav, page=-1 } = Astro.props;
 					<li>
 						<a
 							aria-label="navigation link"
-							href={'/' + item.path}
+							href={  item.path}
 							class={`flex py-2  md:hover:text-orange md:dark:hover:text-orange xs:px-3 ${addClass}`}
 						>
 							
