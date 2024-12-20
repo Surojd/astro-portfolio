@@ -31,16 +31,15 @@ const menuitems = [
 	},
 ];
 const { nav, page=-1 } = Astro.props;
-const isBottomNav = nav === 'bottomnav';
 ---
 
 <header
 	id={nav + '-nav'}
 	data-testId="header"
-	class="flex w-full flex-row items-center justify-between bg-white py-2 dark:bg-black  "
+	class="flex w-full flex-row items-center justify-between bg-white py-2 dark:bg-black fixed bottom-0 z-40 shadow-md md:bottom-auto md:top-0"
 >
-	<div class={`grow ${isBottomNav?'hidden':''}`}></div>
-	<ul class={(isBottomNav?'grow':'')+" mx-2 flex flex-row gap-3 justify-between"}>
+	<div class={`grow hidden md:block`}></div>
+	<ul class="grow md:grow-0 mx-2 flex flex-row gap-3 justify-between">
 		{
 			menuitems.map((item,index) => {
 			const addClass =  page == index ?'text-orange dark:text-orange' : '';
@@ -51,16 +50,18 @@ const isBottomNav = nav === 'bottomnav';
 							href={'/' + item.path}
 							class={`flex py-2  hover:text-orange   dark:hover:text-orange xs:px-3 ${addClass}`}
 						>
-							{nav === 'bottomnav' ? <Icon name={`mdi:${item.icon}`} size={36} /> : item.title}
+							
+							 <Icon class='md:hidden' name={`mdi:${item.icon}`} size={36} /> 
+							<span class="hidden md:block">{item.title}</span>
 						</a>
 					</li>
 				</>
 			})
 		}
-		<li class="grid"><ToggleTheme id={nav} size={isBottomNav ? 36 : 24} /></li>
+		<li class="grid"><ToggleTheme id={nav} size={  36} /></li>
 	</ul>
 	{page == -1 &&
-		<script define:vars={{ nav ,isBottomNav }}>
+		<script define:vars={{ nav }}>
 			document.addEventListener('DOMContentLoaded', () => {
 				let preActiveLink = null;
 				const links = document.querySelectorAll(`#${nav}-nav a[aria-label="navigation link"]`);
@@ -69,10 +70,10 @@ const isBottomNav = nav === 'bottomnav';
 				);
 				const toggleClass = (found, isTrue) => {
 					found.classList.toggle('font-extrabold', isTrue);
-					if (isBottomNav) {
+					// if (isBottomNav) {
 						found.classList.toggle('text-orange', isTrue);
 						found.classList.toggle('dark:text-orange', isTrue);
-					}
+					// }
 				};
 				const updateActiveLink = () => {
 					let activeLink = null;
@@ -104,4 +105,6 @@ const isBottomNav = nav === 'bottomnav';
 				setTimeout(updateActiveLink, 2000);
 			});
 		</script>}
+				<slot name="subheader"  />
 </header>
+

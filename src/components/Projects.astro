@@ -1,5 +1,6 @@
 ---
 import Card from '@components/ui/Card.astro';
+import Section from '@layouts/Section.astro';
 import { getCollection } from 'astro:content';
 import Next from './ui/Next.astro';
 
@@ -8,16 +9,8 @@ const projects = await getCollection('projects', ({ data }) => {
 });
 ---
 
-<section
-	data-testid="projects"
-	id="projects"
-	class="relative mb-10 flex flex-col items-center justify-center md:mb-0"
->
-	<h2 class="pt-14 font-monospace text-2xl text-orange lg:text-4xl">Projects</h2>
-	<span class="mb-10 h-1 w-10 bg-orange"></span>
-	<div
-		class="mb-10 grid w-full grid-cols-auto-fit-3 grid-rows-2 gap-3 p-1 sm:grid-cols-auto-fit-4 sm:gap-5 md:grid-cols-auto-fit-6"
-	>
+<Section title="Projects" id="projects">
+	<div class="mb-10 grid w-full grid-cols-auto-fit-3 gap-3 p-1 sm:gap-5">
 		{
 			projects
 				.reverse()
@@ -34,4 +27,4 @@ const projects = await getCollection('projects', ({ data }) => {
 		}
 	</div>
 	<Next url="#tech" text="Technologies" />
-</section>
+</Section>

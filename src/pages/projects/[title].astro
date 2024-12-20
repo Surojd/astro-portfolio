@@ -28,10 +28,7 @@ if (!project) {
 	title={project.data.title}
 	page={2}
 >
-	<div
-		slot="subheader"
-		class="flex w-full flex-col items-end bg-white pt-2 text-orange dark:bg-black"
-	>
+	<div class="fixed md:sticky md:top-14 flex w-full flex-col items-end bg-white text-orange dark:bg-black z-10">
 		<Astronav closeOnClick>
 			<div class="flex w-full">
 				<div class="grid grow">
@@ -72,8 +69,8 @@ if (!project) {
 			</MenuItems>
 		</Astronav>
 	</div>
-	<div class="relative flex flex-col md:flex-row">
-		<main class="container mx-auto min-h-screen p-4">
+	<div class="relative flex flex-col md:flex-row pt-16">
+		<main class="container mx-auto min-h-screen px-4">
 			<Image
 				class="aspect-16/9 mb-2 inline-block w-full rounded-lg object-cover md:hidden"
 				src={project.data.image}

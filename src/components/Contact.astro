@@ -1,15 +1,28 @@
 ---
 import Social from '@components/ui/Social.astro';
+import Section from '@layouts/Section.astro';
 ---
 
-<section
-	data-testid="contact"
-	id="contact"
-	class="flex h-screen flex-col flex-wrap items-center justify-center gap-8 lg:mb-0"
->
-	<p>Comtact me</p>
-	<hr class="w-full" />
-	<div class="container">
+<Section id="contact" title="Contact Me">
+	<div class="grow">
 		<Social />
 	</div>
-</section>
+	<section class="m-4 flex flex-col gap-2">
+		<p>
+			Welcome to my portfolio website. Here, you can find detailed information about my projects,
+			the technologies I work with, and my professional background. I am a full-stack developer with
+			expertise in Java, Spring Boot, ReactJS, Flutter, and more. Feel free to explore and learn
+			more about my work.
+		</p>
+		<p>
+			If you have any questions or would like to get in touch, please visit the contact section. I
+			am always open to discussing new projects, creative ideas, or opportunities to be part of your
+			vision.
+		</p>
+	</section>
+	<footer data-testid="footer" class="p-6 text-center text-sm">
+		<p>
+			Copyright © {new Date().getFullYear()}. All rights reserved.
+		</p>
+	</footer>
+</Section>

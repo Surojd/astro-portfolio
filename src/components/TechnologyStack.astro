@@ -1,68 +1,260 @@
 ---
-import Tech from '@components/ui/Tech.astro';
-import backgroundImage from '@assets/images/bg3.jpg';
+import { Icon } from 'astro-icon/components';
 import CardStyle from './ui/CardStyle.astro';
 import GridComponent from './ui/GridComponent.astro';
-import Next from './ui/Next.astro';
-import { Icon } from 'astro-icon/components';
+import Section from '@layouts/Section.astro';
+
 const technologyStacks = [
 	{
 		title: 'Java',
-		icon: 'java',
+		icon: 'devicon:java',
 		description:
 			'Java is a class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.',
 		tags: ['Java', 'OOP', 'JVM'],
+		level: 100,
 	},
 	{
-		title: 'Spring Boot',
-		icon: 'spring',
+		title: 'JavaScript',
+		icon: 'devicon:javascript',
 		description:
-			'Spring Boot is an open-source Java-based framework used to create micro-services.',
-		tags: ['Spring', 'Java', 'Microservices'],
+			'JavaScript is a versatile programming language commonly used for web development.',
+		tags: ['JavaScript', 'ES6'],
+		level: 70,
+	},
+	{
+		title: 'HTML/CSS',
+		icon: 'devicon:html5',
+		description: 'HTML and CSS are the foundational technologies for building web pages.',
+		tags: ['HTML', 'CSS'],
+		level: 60,
+	},
+
+	{
+		title: 'Android (Java native)',
+		icon: 'devicon:android',
+		description: 'Android Java is used for developing native Android applications.',
+		tags: ['Android', 'Java'],
+		level: 90,
 	},
 	{
 		title: 'Flutter',
-		icon: 'flutter',
+		icon: 'devicon:flutter',
 		description: 'Flutter is an open-source UI software development kit created by Google.',
 		tags: ['Flutter', 'Dart', 'UI', 'Android', 'iOS'],
+		level: 90,
 	},
+
 	{
-		title: 'MySql',
-		icon: 'mysql',
-		description: 'MySQL is an open-source relational database management system.',
-		tags: ['MySQL', 'Database', 'SQL'],
-	},
-	{
-		title: 'AWS',
-		icon: 'aws',
-		description:
-			'Amazon Web Services is a subsidiary of Amazon providing on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered pay-as-you-go basis.',
+		title: 'AWS (Amazon Web Services)',
+		icon: 'devicon:amazonwebservices-wordmark',
+		description: 'AWS is a comprehensive and widely adopted cloud platform.',
 		tags: ['AWS', 'Cloud', 'S3', 'EC2'],
+		level: 80,
 	},
 	{
-		title: 'ReactJS',
-		icon: 'react',
+		title: 'Firebase',
+		icon: 'devicon:firebase',
+		description:
+			'Firebase is a platform developed by Google for creating mobile and web applications.',
+		tags: ['Firebase', 'Backend'],
+		level: 80,
+	},
+	{
+		title: 'React.js',
+		icon: 'devicon:react',
 		description:
 			'React is an open-source, front end, JavaScript library for building user interfaces or UI components.',
 		tags: ['React', 'JavaScript', 'UI'],
+		level: 70,
+	},
+	{
+		title: 'Bootstrap',
+		icon: 'devicon:bootstrap',
+		description:
+			'Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development.',
+		tags: ['Bootstrap', 'CSS'],
+		level: 60,
+	},
+	{
+		title: 'Visual Studio',
+		icon: 'devicon:visualstudio',
+		description: 'Visual Studio is an integrated development environment (IDE) from Microsoft.',
+		tags: ['Visual Studio'],
+		level: 85,
+	},
+	{
+		title: 'Spring',
+		icon: 'devicon:spring',
+		description: 'Spring is an open-source framework for building enterprise applications.',
+		tags: ['Spring', 'Java', 'Microservices'],
+		level: 90,
+	},
+	{
+		title: 'Hibernate',
+		icon: 'devicon:hibernate',
+		description: 'Hibernate is an object-relational mapping (ORM) tool for Java.',
+		tags: ['Hibernate', 'Java', 'ORM'],
+		level: 90,
+	},
+	{
+		title: 'GIT',
+		icon: 'devicon:git',
+		description: 'GIT is a distributed version control system.',
+		tags: ['GIT', 'Version Control'],
+		level: 90,
+	},
+	{
+		title: 'GitLab',
+		icon: 'devicon:gitlab',
+		description:
+			'GitLab is a web-based DevOps lifecycle tool that provides a Git repository manager providing wiki, issue-tracking, and CI/CD pipeline features, using an open-source license.',
+		tags: ['GitLab', 'DevOps'],
+		level: 80,
+	},
+	{
+		title: 'Elasticsearch',
+		icon: 'devicon:elasticsearch',
+		description: 'Elasticsearch is a search engine based on the Lucene library.',
+		tags: ['Elasticsearch', 'Search'],
+		level: 10,
+	},
+	{
+		title: 'Maven',
+		icon: 'devicon:maven',
+		description: 'Maven is a build automation tool used primarily for Java projects.',
+		tags: ['Maven', 'Build'],
+		level: 10,
+	},
+	{
+		title: 'Gradle',
+		icon: 'devicon:gradle',
+		description: 'Gradle is a build automation tool for multi-language software development.',
+		tags: ['Gradle', 'Build'],
+		level: 10,
+	},
+	{
+		title: 'Slack',
+		icon: 'devicon:slack',
+		description: 'Slack is a proprietary business communication platform.',
+		tags: ['Slack', 'Communication'],
+		level: 10,
+	},
+	{
+		title: 'Docker',
+		icon: 'devicon:docker',
+		description:
+			'Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers.',
+		tags: ['Docker', 'Containerization'],
+		level: 50,
+	},
+	{
+		title: 'Kubernetes',
+		icon: 'devicon:kubernetes',
+		description:
+			'Kubernetes is an open-source container-orchestration system for automating computer application deployment, scaling, and management.',
+		tags: ['Kubernetes', 'Container Orchestration'],
+		level: 50,
+	},
+	{
+		title: 'CSS',
+		icon: 'devicon:css3',
+		description:
+			'CSS is a style sheet language used for describing the presentation of a document written in a markup language like HTML.',
+		tags: ['CSS'],
+		level: 10,
+	},
+
+	{
+		title: 'MySQL',
+		icon: 'devicon:mysql',
+		description: 'MySQL is an open-source relational database management system.',
+		tags: ['MySQL', 'Database', 'SQL'],
+		level: 40,
+	},
+	{
+		title: 'PostgreSQL (PGSQL)',
+		icon: 'devicon:postgresql',
+		description: 'PostgreSQL is a powerful, open-source object-relational database system.',
+		tags: ['PostgreSQL', 'Database', 'SQL'],
+		level: 20,
+	},
+	{
+		title: 'SQL Server',
+		icon: 'devicon:microsoftsqlserver',
+		description: 'SQL Server is a relational database management system developed by Microsoft.',
+		tags: ['SQL Server', 'Database', 'SQL'],
+		level: 30,
+	},
+	{
+		title: 'System architecture',
+		icon: 'architecture',
+		description: 'System architecture involves the design and organization of complex systems.',
+		tags: ['System architecture'],
+		level: 10,
+	},
+	{
+		title: 'Team leadership',
+		icon: 'leadership',
+		description: 'Team leadership involves guiding and managing a team to achieve goals.',
+		tags: ['Team leadership'],
+		level: 10,
+	},
+	{
+		title: 'Microservices',
+		icon: 'microservices',
+		description:
+			'Microservices is an architectural style that structures an application as a collection of loosely coupled services.',
+		tags: ['Microservices'],
+		level: 10,
+	},
+	{
+		title: 'SQL/NoSQL',
+		icon: 'database',
+		description: 'SQL and NoSQL are types of database management systems.',
+		tags: ['SQL', 'NoSQL'],
+		level: 10,
+	},
+	{
+		title: 'REST API',
+		icon: 'devicon:openapi',
+		description: 'REST API is an architectural style for designing networked applications.',
+		tags: ['REST API'],
+		level: 40,
+	},
+	{
+		title: 'NodeJS',
+		icon: 'devicon:nodejs',
+		description: "NodeJS is a JavaScript runtime built on Chrome's V8 JavaScript engine.",
+		tags: ['NodeJS', 'JavaScript'],
+		level: 40,
 	},
 ];
 ---
 
-<GridComponent title="Technology Stack" id="tech">
-	<div class="mb-10 grid w-full grid-cols-auto-fit-4 gap-3 p-1 sm:gap-5">
+<Section title="Technology Stack" id="tech">
+	<div class="mb-10 grid w-full grid-cols-auto-fit-3 gap-3 p-1 sm:gap-5">
 		{
-			technologyStacks.map((tech) => (
-				<CardStyle
-					name={tech.icon}
-					title={tech.title}
-					description={tech.description}
-					tags={tech.tags}
-				>
-					<Icon name={tech.icon} title={tech.title} size={100} class="w-full p-5 aspect-square" />
-				</CardStyle>
-			))
+			technologyStacks
+				.sort((a, b) => b.level - a.level)
+				.map((item) => (
+					<CardStyle
+						name={item.icon}
+						title={item.title}
+						description={item.description}
+						tags={item.tags}
+					>
+						{item.icon.includes('devicon:') ? (
+							<Icon
+								name={item.icon}
+								title={item.title}
+								size={100}
+								class="aspect-square w-full p-5"
+							/>
+						) : (
+							<div class="p-5">{item.title}</div>
+						)}
+					</CardStyle>
+				))
 		}
 	</div>
-	<Next url="#contact" text="Contact" slot="next" />
-</GridComponent>
+</Section>

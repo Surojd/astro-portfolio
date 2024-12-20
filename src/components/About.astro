@@ -1,29 +1,30 @@
 ---
+import Section from '@layouts/Section.astro';
 import Next from './ui/Next.astro';
 ---
 
-<section
-	data-testid="about"
-	id="about"
-	class="relative mb-10 flex h-screen flex-col items-center justify-center md:mb-0 lg:flex-row mx-5"
->
-	<div class="mb-10 flex w-full flex-col items-center justify-center lg:mb-0 lg:w-1/2">
-		<h2 class="font-monospace text-2xl text-orange lg:text-4xl">About me</h2>
-		<span class="mb-6 ml-2 h-1 w-10 bg-orange"></span>
-	</div>
-
-	<div class="w-full text-justify  lg:w-1/2">
-		<p class="mb-2">
+<Section title="About" id="about">
+	<div class="grid grow content-center w-full gap-2 text-justify lg:w-1/2 p-4">
+		<p>
 			As a seasoned Full Stack Programmer with 8 years of experience, I bring a wealth of knowledge
 			and skill to the table. My specialization in Java technologies allows me to deliver
 			high-quality software solutions, utilizing frameworks and tools such as Java Swing, Spring
 			Boot, and Flutter. Additionally, my proficiency in JavaScript programming enables me to create
-			dynamic and responsive applications. I am committed to simplifying the development process,
-			ensuring it is not only efficient but also enjoyable for my clients. My approach is
-			client-centric, focusing on delivering tailored solutions that meet their unique needs and
-			exceed their expectations.
+			dynamic and responsive applications. I have led teams to success in various projects, ensuring
+			high-quality deliverables and client satisfaction. My expertise spans across multiple
+			frameworks and systems, including Spring Boot, React.js, and Flutter, making me a versatile
+			and valuable asset in any development environment.
+		</p>
+		<p>
+			Known for my problem-solving skills and dedication to over-delivering, I consistently provide
+			value to my clients, earning their trust through responsiveness and resilience. Based in
+			Khokana, Lalitpur, Nepal, I am always eager to tackle new challenges and collaborate on
+			innovative projects. My commitment to simplifying the development process ensures it is not
+			only efficient but also enjoyable for my clients. My client-centric approach focuses on
+			delivering tailored solutions that meet their unique needs and exceed their expectations. My
+			dedication to continuous learning and improvement drives me to stay updated with the latest
+			technologies and best practices in the industry.
 		</p>
 	</div>
-
-	<Next url="#projects" />
-</section>
+	<Next url="#projects" text="Projects" />
+</Section>

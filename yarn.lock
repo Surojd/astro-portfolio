@@ -249,6 +249,13 @@
   resolved "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.24.0.tgz"
   integrity sha512-7IAFPrjSQIJrGsK6flwg7NFmwBoSTyF3rl7If0hNUFQU4ilTsEPL6GuMuU9BfIWVVGuRnuIidkSMC+c0Otu8IA==
 
+"@iconify-json/devicon@^1.2.9":
+  version "1.2.9"
+  resolved "https://registry.npmjs.org/@iconify-json/devicon/-/devicon-1.2.9.tgz"
+  integrity sha512-YwjF7z+ni9jxlDCa5nbivn+CJv1t/NEk1OpVIbF4ehGCtOvJq5zDIkeH3IJJPtD5k+8WmsW8BwWlnapLxehPSg==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify-json/mdi@^1.1.64":
   version "1.1.66"
   resolved "https://registry.npmjs.org/@iconify-json/mdi/-/mdi-1.1.66.tgz"

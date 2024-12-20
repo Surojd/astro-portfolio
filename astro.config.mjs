@@ -14,6 +14,7 @@ export default defineConfig({
 		icon({
 			include: {
 				mdi: ['*'],
+				devicon: ['*'],
 			},
 		}),
 		robots(),

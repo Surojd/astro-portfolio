@@ -7,7 +7,7 @@ const { title, id } = Astro.props;
 	id={id}
 	class="relative mb-10 flex flex-col items-center justify-center md:mb-0"
 >
-	<h2 class="pt-14 font-monospace text-2xl text-orange lg:text-4xl">{title}</h2>
+	<h2 class="font-monospace text-2xl text-orange lg:text-4xl">{title}</h2>
 	<span class="mb-10 h-1 w-10 bg-orange"></span>
 	<slot />
 	<slot name="next" />
