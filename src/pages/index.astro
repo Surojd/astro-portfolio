@@ -5,30 +5,14 @@ import Projects from '@components/Projects.astro';
 import TechnologyStack from '@components/TechnologyStack.astro';
 import Layout from '@layouts/Layout.astro';
 
-import surojd from '@assets/images/surojd.jpg';
-import { getImage } from 'astro:assets';
-const image = await getImage({
-	src: surojd,
-	widths: [400, 600, 800, 1600, surojd.width],
-	format: 'webp',
-	alt: 'Suroj Dangol',
-	quality: 80,
-});
 ---
 
 <Layout>
-	<Fragment slot="head">
-		{
-			image.srcSet.values.map((item, i) => (
-				<link rel={i === 0 ? 'preload' : 'prefetch'} href={item.url} as="image" />
-			))
-		}
-	</Fragment>
 	<main id="main">
 		<Hero />
 		<About />
 		<Projects />
-		<div id="tech"></div>
+		<TechnologyStack />
 	</main>
 
 	<div
@@ -59,7 +43,7 @@ const image = await getImage({
 		};
 
 		document.addEventListener('DOMContentLoaded', async () => {
-			loadpage('/technology-stack', 'tech');
+			// loadpage('/technology-stack', 'tech');
 			const message = getQueryParam('message');
 			if (message) {
 				const dialog = document.getElementById('messageDialog');

@@ -5,12 +5,25 @@ import { getImage, Image } from 'astro:assets';
 import surojd from '@assets/images/surojd.jpg';
 import Section from '@layouts/Section.astro';
 ---
+
 <Section>
 	<div
 		data-testid="hero"
-		class="flex flex-col-reverse items-center justify-center text-center sm:flex-row grow"
+		class="flex grow flex-col items-center justify-center text-center sm:flex-row-reverse"
 		id="home"
 	>
+		<div data-testid="hero-img" class="mb-10 flex w-1/2 items-center justify-center">
+			<Image
+				src={surojd}
+				alt="Suroj Dangol"
+				class="aspect-square rounded-full object-cover"
+				loading="lazy"
+				widths={[400, 600, 800, 1600]}
+				height={400}
+				width={400}
+				quality={80}
+			/>
+		</div>
 		<div class="mb-10 flex flex-col items-center sm:mb-0 sm:w-1/2">
 			<div>
 				<h1 class="mb-10 font-monospace text-3xl md:text-4xl lg:text-5xl">
@@ -27,18 +40,6 @@ import Section from '@layouts/Section.astro';
 					/></a
 				>
 			</div>
-		</div>
-		<div data-testid="hero-img" class="mb-10 flex w-1/2 items-center justify-center">
-			<Image
-				src={surojd}
-				alt="Suroj Dangol"
-				class="aspect-square rounded-full object-cover"
-				loading="eager"
-				widths={[400, 600, 800, 1600]}
-				height={400}
-				width={400}
-				quality={80}
-			/>
 		</div>
 	</div>
 	<Next url="#about" />
