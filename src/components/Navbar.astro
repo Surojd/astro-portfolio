@@ -37,76 +37,71 @@ const isBottomNav = nav === 'bottomnav';
 <header
 	id={nav + '-nav'}
 	data-testId="header"
-	class="flex w-full flex-col items-center justify-between bg-white py-2 dark:bg-black xs:flex xs:flex-row"
+	class="flex w-full flex-row items-center justify-between bg-white py-2 dark:bg-black  "
 >
-	<Astronav>
-		<div></div>
-		<MenuItems class="flex w-full justify-center xs:mt-0 xs:w-auto">
-			<ul class="mx-2 flex flex-row gap-3">
-				{
-					menuitems.map((item,index) => {
-					const addClass =  page == index ?'text-orange dark:text-orange' : '';
-
-					return	<>
-							<li>
-								<a
-									aria-label="navigation link"
-									href={'/' + item.path}
-									class={`flex py-2  hover:text-orange   dark:hover:text-orange xs:px-3 ${addClass}`}
-								>
-									{nav === 'bottomnav' ? <Icon name={`mdi:${item.icon}`} size={36} /> : item.title}
-								</a>
-							</li>
-						</>
-					})
-				}
-				<li class="grid"><ToggleTheme id={nav} size={isBottomNav ? 36 : 24} /></li>
-			</ul>
-		</MenuItems>
-	</Astronav>
-{page == -1 &&
-	<script define:vars={{ nav ,isBottomNav }}>
-		document.addEventListener('DOMContentLoaded', () => {
-			let preActiveLink = null;
-			const links = document.querySelectorAll(`#${nav}-nav a[aria-label="navigation link"]`);
-			const sections = Array.from(links).map((link) =>
-				document.querySelector(link.getAttribute('href').replace('/', ''))
-			);
-			const toggleClass = (found, isTrue) => {
-				found.classList.toggle('font-extrabold', isTrue);
-				if (isBottomNav) {
-					found.classList.toggle('text-orange', isTrue);
-					found.classList.toggle('dark:text-orange', isTrue);
-				}
-			};
-			const updateActiveLink = () => {
-				let activeLink = null;
-				sections.forEach((section, index) => {
-					const rect = section.getBoundingClientRect();
-					if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-						activeLink = links[index].href;
+	<div class={`grow ${isBottomNav?'hidden':''}`}></div>
+	<ul class={(isBottomNav?'grow':'')+" mx-2 flex flex-row gap-3 justify-between"}>
+		{
+			menuitems.map((item,index) => {
+			const addClass =  page == index ?'text-orange dark:text-orange' : '';
+			return	<>
+					<li>
+						<a
+							aria-label="navigation link"
+							href={'/' + item.path}
+							class={`flex py-2  hover:text-orange   dark:hover:text-orange xs:px-3 ${addClass}`}
+						>
+							{nav === 'bottomnav' ? <Icon name={`mdi:${item.icon}`} size={36} /> : item.title}
+						</a>
+					</li>
+				</>
+			})
+		}
+		<li class="grid"><ToggleTheme id={nav} size={isBottomNav ? 36 : 24} /></li>
+	</ul>
+	{page == -1 &&
+		<script define:vars={{ nav ,isBottomNav }}>
+			document.addEventListener('DOMContentLoaded', () => {
+				let preActiveLink = null;
+				const links = document.querySelectorAll(`#${nav}-nav a[aria-label="navigation link"]`);
+				const sections = Array.from(links).map((link) =>
+					document.querySelector(link.getAttribute('href').replace('/', ''))
+				);
+				const toggleClass = (found, isTrue) => {
+					found.classList.toggle('font-extrabold', isTrue);
+					if (isBottomNav) {
+						found.classList.toggle('text-orange', isTrue);
+						found.classList.toggle('dark:text-orange', isTrue);
 					}
-				});
+				};
+				const updateActiveLink = () => {
+					let activeLink = null;
+					sections.forEach((section, index) => {
+						const rect = section.getBoundingClientRect();
+						if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+							activeLink = links[index].href;
+						}
+					});
 
-				let found;
-				for (let i = 0; i < links.length; i++) {
-					if (links[i].href === activeLink) {
-						found = links[i];
-						break; // Exit the loop once the active link is found
+					let found;
+					for (let i = 0; i < links.length; i++) {
+						if (links[i].href === activeLink) {
+							found = links[i];
+							break; // Exit the loop once the active link is found
+						}
 					}
-				}
-				if (!found || preActiveLink?.href === found?.href) return;
+					if (!found || preActiveLink?.href === found?.href) return;
 
-				history.replaceState(null, null, activeLink);
-				toggleClass(found, true);
-				if (preActiveLink && preActiveLink !== found) {
-					toggleClass(preActiveLink, false);
-				}
-				preActiveLink = found;
-			};
+					history.replaceState(null, null, activeLink);
+					toggleClass(found, true);
+					if (preActiveLink && preActiveLink !== found) {
+						toggleClass(preActiveLink, false);
+					}
+					preActiveLink = found;
+				};
 
-			window.addEventListener('scroll', updateActiveLink);
-			setTimeout(updateActiveLink, 2000);
-		});
-	</script>}
+				window.addEventListener('scroll', updateActiveLink);
+				setTimeout(updateActiveLink, 2000);
+			});
+		</script>}
 </header>

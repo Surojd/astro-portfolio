@@ -1,6 +1,7 @@
 ---
 import Tags from '@components/ui/Tags.astro';
 import Layout from '@layouts/Layout.astro';
+import { Astronav, MenuIcon, MenuItems } from 'astro-navbar';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 export async function getStaticPaths() {
@@ -27,29 +28,68 @@ if (!project) {
 	title={project.data.title}
 	page={2}
 >
+	<div
+		slot="subheader"
+		class="flex w-full flex-col items-end bg-white pt-2 text-orange dark:bg-black"
+	>
+		<Astronav closeOnClick>
+			<div class="flex w-full">
+				<div class="grid grow">
+					<h1 class="place-self-center text-center text-xl font-bold md:text-2xl lg:text-3xl">
+						{project.data.title}
+					</h1>
+					<a
+						href={project.data.link}
+						target="_blank"
+						class="text-blue-dark dark:text-blue place-self-center text-xs font-bold"
+					>
+						Visit Website
+					</a>
+				</div>
+
+				<div class="grid aspect-square place-items-center px-4 md:hidden">
+					<MenuIcon class="text-gray-800 h-8 w-8" />
+				</div>
+			</div>
+			<MenuItems
+				class="absolute right-0 top-16 hidden transform rounded-lg border border-black bg-white px-3 text-right transition-transform dark:border-white dark:bg-black"
+			>
+				<h2 class="text-2xl font-bold text-orange">More Projects</h2>
+				<ul>
+					{
+						projects.map((p) => (
+							<li class="text-sm hover:text-orange" title={p.data.title}>
+								<a
+									class="inline-block w-full border-black p-2  text-black dark:border-white dark:text-white"
+									href={`/projects/${p.data.title.toLowerCase().replace(/\s+/g, '-')}`}
+								>
+									{p.data.title}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</MenuItems>
+		</Astronav>
+	</div>
 	<div class="relative flex flex-col md:flex-row">
 		<main class="container mx-auto min-h-screen p-4">
-			<h1 class="text-center text-4xl font-bold">
-				{project.data.title}
-			</h1>
-			<a
-				href={project.data.link}
-				target="_blank"
-				class="inline-block w-full pb-8 text-center text-xs hover:text-orange"
-			>
-				Visit Website
-			</a>
+			<Image
+				class="aspect-16/9 mb-2 inline-block w-full rounded-lg object-cover md:hidden"
+				src={project.data.image}
+				alt={project.data.img_alt || project.data.title}
+			/>
 			<div class="mb-2 whitespace-pre-line" set:html={project.rendered?.html} />
 			<Tags tags={project.data.tags} />
 		</main>
 		<sidebar class="relative w-full md:w-80">
 			<Image
-				class="mb-2 mr-2 inline-block w-full"
+				class="mb-2 hidden w-full md:inline-block"
 				src={project.data.image}
 				alt={project.data.img_alt || project.data.title}
 			/>
-			<div class="sticky top-20 flex flex-col items-center">
-				<h2 class="text-2xl font-bold">More Projects</h2>
+			<div class="sticky top-28 hidden flex-col items-center md:flex">
+				<h2 class="text-2xl font-bold text-orange">More Projects</h2>
 				<ul>
 					{
 						projects.map((p) => (

@@ -17,6 +17,10 @@ module.exports = {
 			white: '#fff',
 			orange: '#E06330',
 			yellow: 'yellow',
+			blue: {
+				DEFAULT: '#8787ff', // Light theme blue
+				dark: '#4a4aff', // Dark theme blue
+			},
 		},
 		fontFamily: {
 			// Headings
@@ -53,6 +57,10 @@ module.exports = {
 
 			gridAutoColumns: {
 				max: 'max-content',
+			},
+			aspectRatio: {
+				'16/9': '16 / 9',
+				'4/3': '4/3',
 			},
 		},
 	},

@@ -25,12 +25,20 @@ const {
 
 <article
 	data-testId="card"
-	class="rounded-xl outline outline-1 outline-black bg-white pb-3 shadow-lg duration-100
-hover:scale-105 hover:transform hover:shadow-xl dark:outline-white dark:bg-black hover:outline-orange dark:hover:outline-orange"
+	class="*: rounded-xl bg-white pb-3 shadow-lg outline outline-1 outline-black duration-100
+	hover:transform hover:shadow-xl hover:outline-orange dark:bg-black dark:outline-white dark:hover:outline-orange"
 >
 	<a href={url} aria-label={`${title} - Project Details`}>
 		<div class="relative flex aspect-square items-end overflow-hidden rounded-t-xl">
-			<Image class='w-full h-full' src={image} alt={alt} widths={[400, 600]} height={400} width={400} />
+			<Image
+				class="h-full w-full"
+				src={image}
+				alt={alt}
+				widths={[400, 600]}
+				quality={80}
+				height={400}
+				width={400}
+			/>
 		</div>
 		<div class="mt-1 px-2">
 			<h3

@@ -5,9 +5,10 @@ import { getImage, Image } from 'astro:assets';
 import surojd from '@assets/images/surojd.jpg';
 const image = await getImage({
 	src: surojd,
-	widths: [400, 600, 800, 1600, ],//surojd.width],
+	widths: [400, 600, 800, 1600, surojd.width],
 	format: 'webp',
 	alt: 'Suroj Dangol',
+	quality: 80,
 });
 ---
 
@@ -32,8 +33,6 @@ const image = await getImage({
 			</h1>
 		</div>
 		<div class="mb-10">
-			<!-- <Button style={'primary'} size={'lg'} class={'flex'} name="learn more">Learn more</Button> -->
-
 			<a href="https://github.com/Surojd" target="_blank" rel="noopener" aria-label="github"
 				><Icon
 					class="h-8 hover:text-orange dark:hover:text-orange md:h-12"
@@ -52,6 +51,7 @@ const image = await getImage({
 			widths={[400, 600, 800, 1600]}
 			height={400}
 			width={400}
+			quality={80}
 		/>
 	</div>
 	<Next url="#about" />

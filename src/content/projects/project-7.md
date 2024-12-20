@@ -32,12 +32,4 @@ ariasys is built using a modern technology stack to ensure high performance, sca
 
 ariasys is an essential tool for project managers looking to optimize project performance and make data-driven decisions. With its AI-powered capabilities, comprehensive data integration, and user-friendly interface, ariasys empowers project managers to streamline project development and achieve successful project outcomes.
 
-For more information, visit the [ariasys website](https://www.ariasys.co/).---
-inProgress: false
-title: ariasys
-description: Our AI-powered software simplifies project development by effortlessly generating S-Curves from data across Engineering, Procurement, Construction, and Project Management phases.
-image: ../images/ariasys.webp
-img_alt: project image alt text
-link: https://www.ariasys.co/
-tags: ['Spring Boot', 'OpenAI', 'Java 17', 'AWS', 'Docker']
----
+For more information, visit the [ariasys website](https://www.ariasys.co/).

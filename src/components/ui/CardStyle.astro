@@ -25,21 +25,21 @@ const {
 <article
 	data-testId="card"
 	class="rounded-xl bg-white pb-3 shadow-lg outline outline-1 outline-black duration-100
-hover:scale-105 hover:transform hover:shadow-xl hover:outline-orange dark:bg-black dark:outline-white dark:hover:outline-orange"
+  hover:transform hover:shadow-xl hover:outline-orange dark:bg-black dark:outline-white dark:hover:outline-orange"
 >
-	<a href={url} aria-label={`${title} - Project Details`} class="flex flex-col h-full">
+	<div title={`${title} - Project Details`} class="flex h-full flex-col cursor-pointer">
 		<slot />
-		<div class="mt-1 grow px-2 flex flex-col gap-1">
+		<div class="mt-1 flex grow flex-col gap-1 px-2">
 			<h3
 				class="text-md overflow-hidden overflow-ellipsis whitespace-nowrap hover:overflow-visible sm:text-lg lg:text-xl"
 				title={title}
 			>
 				{title}
 			</h3>
-			<p class="text-xs sm:text-sm grow">
+			<p class="grow text-xs sm:text-sm">
 				{description}
 			</p>
 			<Tags tags={tags} />
 		</div>
-	</a>
+	</div>
 </article>

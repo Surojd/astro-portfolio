@@ -78,8 +78,12 @@ const url = meta?.url ?? 'https://surojd.com.np/';
 	<body
 		class="mx-auto max-w-screen-xl bg-white font-sans text-black dark:bg-black dark:text-white xs:text-[16px] md:text-[18px]"
 	>
+		<div class="sticky top-0 z-40 sm:hidden">
+			<slot name="subheader" />
+		</div>
 		<div class="sticky top-0 z-40 hidden sm:block">
 			<Navbar nav="topnav" page={page} />
+			<slot name="subheader" />
 		</div>
 		<slot />
 		<Contact />
