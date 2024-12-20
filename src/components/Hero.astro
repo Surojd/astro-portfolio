@@ -1,9 +1,9 @@
 ---
-import { Icon } from 'astro-icon/components';
-import Next from './ui/Next.astro';
-import { getImage, Image } from 'astro:assets';
 import surojd from '@assets/images/surojd.jpg';
 import Section from '@layouts/Section.astro';
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import Next from './ui/Next.astro';
 ---
 
 <Section>
@@ -18,10 +18,11 @@ import Section from '@layouts/Section.astro';
 				alt="Suroj Dangol"
 				class="aspect-square rounded-full object-cover"
 				loading="lazy"
+				format="avif"
 				widths={[400, 600, 800, 1600]}
 				height={400}
 				width={400}
-				quality={80}
+				quality={50}
 			/>
 		</div>
 		<div class="mb-10 flex flex-col items-center sm:mb-0 sm:w-1/2">

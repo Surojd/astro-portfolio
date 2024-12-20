@@ -2,6 +2,7 @@
 import projectImage from '@assets/images/project.webp';
 import Tags from '@components/ui/Tags.astro';
 import { Image } from 'astro:assets';
+import { lazy } from 'astro:schema';
 
 interface Props {
 	url?: string;
@@ -34,8 +35,10 @@ const {
 				class="h-full w-full"
 				src={image}
 				alt={alt}
+				format="avif"
+				loading='lazy'
 				widths={[400, 600]}
-				quality={80}
+				quality={50}
 				height={400}
 				width={400}
 			/>
