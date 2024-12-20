@@ -4,22 +4,7 @@ import Next from './ui/Next.astro';
 import { getImage, Image } from 'astro:assets';
 import surojd from '@assets/images/surojd.jpg';
 import Section from '@layouts/Section.astro';
-const image = await getImage({
-	src: surojd,
-	widths: [400, 600, 800, 1600, surojd.width],
-	format: 'webp',
-	alt: 'Suroj Dangol',
-	quality: 80,
-});
 ---
-
-<Fragment slot="head">
-	{
-		image.srcSet.values.map((item, i) => (
-			<link rel={i === 0 ? 'preload' : 'prefetch'} href={item.url} as="image" />
-		))
-	}
-</Fragment>
 <Section>
 	<div
 		data-testid="hero"

@@ -1,7 +1,6 @@
 ---
 import ToggleTheme from '@components/ui/ToggleTheme.astro';
 import { Icon } from 'astro-icon/components';
-import { Astronav, MenuItems } from 'astro-navbar';
 
 const menuitems = [
 	{
@@ -36,7 +35,7 @@ const { nav, page=-1 } = Astro.props;
 <header
 	id={nav + '-nav'}
 	data-testId="header"
-	class="flex w-full flex-row items-center justify-between bg-white py-2 dark:bg-black fixed bottom-0 z-40 shadow-md md:bottom-auto md:top-0"
+	class="flex w-full flex-row items-center justify-between bg-white py-2 dark:bg-black fixed bottom-0 z-40  md:bottom-auto md:top-0"
 >
 	<div class={`grow hidden md:block`}></div>
 	<ul class="grow md:grow-0 mx-2 flex flex-row gap-3 justify-between">
@@ -48,7 +47,7 @@ const { nav, page=-1 } = Astro.props;
 						<a
 							aria-label="navigation link"
 							href={'/' + item.path}
-							class={`flex py-2  hover:text-orange   dark:hover:text-orange xs:px-3 ${addClass}`}
+							class={`flex py-2  md:hover:text-orange md:dark:hover:text-orange xs:px-3 ${addClass}`}
 						>
 							
 							 <Icon class='md:hidden' name={`mdi:${item.icon}`} size={36} /> 
@@ -65,17 +64,17 @@ const { nav, page=-1 } = Astro.props;
 			document.addEventListener('DOMContentLoaded', () => {
 				let preActiveLink = null;
 				const links = document.querySelectorAll(`#${nav}-nav a[aria-label="navigation link"]`);
-				const sections = Array.from(links).map((link) =>
-					document.querySelector(link.getAttribute('href').replace('/', ''))
-				);
+				
 				const toggleClass = (found, isTrue) => {
 					found.classList.toggle('font-extrabold', isTrue);
-					// if (isBottomNav) {
-						found.classList.toggle('text-orange', isTrue);
-						found.classList.toggle('dark:text-orange', isTrue);
-					// }
+					found.classList.toggle('text-orange', isTrue);
+					found.classList.toggle('md:text-black', isTrue);
+					found.classList.toggle('md:dark:text-orange', isTrue);
 				};
 				const updateActiveLink = () => {
+					const sections = Array.from(links).map((link) =>
+						document.querySelector(link.getAttribute('href').replace('/', ''))
+					);
 					let activeLink = null;
 					sections.forEach((section, index) => {
 						const rect = section.getBoundingClientRect();
