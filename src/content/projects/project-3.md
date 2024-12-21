@@ -3,7 +3,7 @@ inProgress: false
 title: GSewa
 description: Digital Wallet
 image: ../images/gsewa.webp
-img_alt: project image alt text
+img_alt: Screenshot of GSewa
 link: https://gsewa.com.np/
 tags: ['Java', 'Spring Boot', 'React', 'CSS', 'JS']
 ---

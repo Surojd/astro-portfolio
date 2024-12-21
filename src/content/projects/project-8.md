@@ -3,7 +3,7 @@ inProgress: false
 title: Bibaabo
 description: BIBAABO, short for BIMA BANK AND BROKER.
 image: ../images/bibaabo.webp 
-img_alt: BIBAABO, short for BIMA BANK AND BROKER
+img_alt: Screenshot of Bibaabo
 link: https://bibaabo.com/
 tags: ['Flutter']
 ---

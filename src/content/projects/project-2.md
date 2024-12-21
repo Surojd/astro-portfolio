@@ -3,7 +3,7 @@ inProgress: false
 title: SIM Management System
 description: SIM Card Dealer and User details collection
 image: ../images/sim.webp
-img_alt: project image alt text
+img_alt: Screenshot of SIM Management System
 link: https://sim.bloomers.com.np/
 tags: ['ReactJS', 'MaterialUI', 'Spring Boot']
 --- 
