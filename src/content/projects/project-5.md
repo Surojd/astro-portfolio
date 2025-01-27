@@ -5,7 +5,7 @@ description: Job Listing
 image: ../images/ses.webp
 img_alt: Screenshot of Students Employment Services
 link: https://studentsemploymentservices.com.au/
-tags: ['Java', 'Spring Boot', 'Flutter', 'Android']
+tags: ['Java', 'Spring Boot', 'AWS', 'Flutter', 'Android']
 ---
 
 Students Employment Services is a comprehensive job listing platform designed to connect students with potential employers. This platform provides a user-friendly interface for students to search for job opportunities, apply for positions, and manage their employment applications. Built with modern web and mobile technologies, Students Employment Services ensures a seamless and efficient experience for both students and employers.
@@ -23,8 +23,15 @@ Students Employment Services is a comprehensive job listing platform designed to
 
 Students Employment Services is built using a modern technology stack to ensure high performance, scalability, and maintainability. The key technologies used include:
 
-- **Backend**: Java, Spring Boot
-- **Cross-Platform Development**: Flutter
+- **Backend**: Java 11, Spring Boot
+- **Cloud Services**: AWS
+- **Cross-Platform Development**: Flutter (iOS , Android, Web)
+
+### My Responsibilities
+
+- **Backend**: Developed and maintained the backend using Java 11 and Spring Boot.
+- **Cloud Services**: Managed cloud services and deployment on AWS.
+- **Cross-Platform Development**: Developed the mobile and web applications using Flutter for iOS, Android, and Web.
 
 ### Conclusion
 

@@ -5,8 +5,8 @@ description: Domain Management for IT Companies
 image: ../images/domain_management.webp
 img_alt: Screenshot of Domain Management
 link: https://crm.surojd.com.np/domain/
-tags: ['Java', 'Spring Boot', 'ReactJS', 'MaterialUI']
---- 
+tags: ['Java', 'Spring Boot', 'AWS', 'ReactJS', 'MaterialUI']
+---
 
 The Domain Management system is a comprehensive platform designed to streamline the management of domain names for IT companies. This system provides a user-friendly interface for managing domain registrations, renewals, and transfers, ensuring efficient and organized domain management. Built with modern web technologies, the Domain Management system offers a seamless and efficient experience for IT administrators.
 

@@ -28,6 +28,13 @@ ariasys is built using a modern technology stack to ensure high performance, sca
 - **Cloud Services**: AWS
 - **Containerization**: Docker
 
+### My Responsibilities
+
+- **Backend**: Developed and maintained the backend using Spring Boot and Java 17.
+- **AI Integration**: Integrated AI capabilities using OpenAI.
+- **Cloud Services**: Managed cloud services and deployment on AWS.
+- **Containerization**: Utilized Docker for containerization and deployment.
+
 ### Conclusion
 
 ariasys is an essential tool for project managers looking to optimize project performance and make data-driven decisions. With its AI-powered capabilities, comprehensive data integration, and user-friendly interface, ariasys empowers project managers to streamline project development and achieve successful project outcomes.

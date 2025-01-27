@@ -26,6 +26,6 @@ The Password Generator is built using a modern technology stack to ensure high p
 
 ### Conclusion
 
-The Password Generator is an essential tool for users looking to create strong and secure passwords. With its customizable options, user-friendly interface, and instant generation capabilities, the Password Generator empowers users to enhance their online security and protect their accounts.
+As the creator of the Password Generator, I developed this tool to help users create strong and secure passwords. With its customizable options, user-friendly interface, and instant generation capabilities, the Password Generator empowers users to enhance their online security and protect their accounts.
 
 For more information, visit the [Password Generator website](https://passwordgenerator.surojd.com.np/).
