@@ -23,7 +23,7 @@ if (!project) {
 	meta={{
 		description: project.data.description,
 		image: project.data.image,
-		url: `https://surojd.com.np/projects/${project.data.title.toLowerCase().replace(/\s+/g, '-')}`,
+		url: `https://surojd.com.np/projects/${project.data.title.toLowerCase().replace(/\s+/g, '-')}/`,
 	}}
 	title={project.data.title}
 	page={2}
@@ -60,7 +60,7 @@ if (!project) {
 							<li class="text-sm hover:text-orange" title={p.data.title}>
 								<a
 									class="inline-block w-full border-black p-2  text-black dark:border-white dark:text-white"
-									href={`/projects/${p.data.title.toLowerCase().replace(/\s+/g, '-')}`}
+									href={`/projects/${p.data.title.toLowerCase().replace(/\s+/g, '-')}/`}
 								>
 									{p.data.title}
 								</a>
