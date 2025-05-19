@@ -78,20 +78,22 @@ const url = meta?.url ?? 'https://surojd.com.np/';
 		<link rel="dns-prefetch" href="//www.googletagmanager.com" />
 		<link rel="preconnect" href="https://www.googletagmanager.com" />
 
-		<!-- Google Tag Manager -->
-		<script async is:inline>
-			(function (w, d, s, l, i) {
-				w[l] = w[l] || [];
-				w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-				var f = d.getElementsByTagName(s)[0],
-					j = d.createElement(s),
-					dl = l != 'dataLayer' ? '&l=' + l : '';
-				j.async = true;
-				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-				f.parentNode.insertBefore(j, f);
-			})(window, document, 'script', 'dataLayer', 'GTM-MQXQFWX');
+		<!-- Google Tag Manager (deferred) -->
+		<script is:inline>
+			window.addEventListener('DOMContentLoaded', () => {
+				let loaded = false;
+				function loadGTM() {
+					if (loaded) return;
+					loaded = true;
+					const script = document.createElement('script');
+					script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-MQXQFWX';
+					document.head.appendChild(script);
+				}
+				setTimeout(loadGTM, 3000);
+				window.addEventListener('click', loadGTM, { once: true });
+			});
 		</script>
-		<!-- End Google Tag Manager -->
+		<!-- End Google Tag Manager (deferred) -->
 	</head>
 	<body
 		class="mx-auto max-w-screen-xl bg-white font-sans text-black dark:bg-black dark:text-white xs:text-[16px] md:text-[18px]"
