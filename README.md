@@ -1,8 +1,8 @@
 💫 I make portfolio from this free template. **[Astro 4.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/)**.
 
-## Live
+## Live [![Netlify Status](https://api.netlify.com/api/v1/badges/6532d157-804b-40a9-ba39-fb2153e749a9/deploy-status)](https://app.netlify.com/projects/surojd/deploys)
 
-📌 [https://surojd.com.np/](https://surojd.com.np/)
+📌 [https://surojd.com.np/](https://surojd.com.np/) 
 
 ## Features
 
