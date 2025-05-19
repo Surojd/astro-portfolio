@@ -75,9 +75,11 @@ const url = meta?.url ?? 'https://surojd.com.np/';
 		<meta name="generator" content={Astro.generator} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<slot name="head" />
+		<link rel="dns-prefetch" href="//www.googletagmanager.com" />
+		<link rel="preconnect" href="https://www.googletagmanager.com" />
 
 		<!-- Google Tag Manager -->
-		<script is:inline>
+		<script async is:inline>
 			(function (w, d, s, l, i) {
 				w[l] = w[l] || [];
 				w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
