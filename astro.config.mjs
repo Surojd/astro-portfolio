@@ -7,18 +7,14 @@ import robots from 'astro-robots';
 
 import sitemap from '@astrojs/sitemap';
 
+import crittersSlim from 'astro-critters-slim';
+
 export default defineConfig({
-	integrations: [
-		tailwind(),
-		mdx(),
-		icon({
-			include: {
-				mdi: ['*'],
-				devicon: ['*'],
-			},
-		}),
-		robots(),
-		sitemap(),
-	],
+    integrations: [tailwind(), mdx(), icon({
+        include: {
+            mdi: ['*'],
+            devicon: ['*'],
+        },
+		}), robots(), sitemap(), crittersSlim()],
     site:'https://surojd.com.np',
 });
