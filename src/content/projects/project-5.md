@@ -1,7 +1,7 @@
 ---
 inProgress: false
 title: Students Employment Services
-description: Job Listing
+description: Platform connecting students with job listings, applications, employer profiles, and resume builder for career opportunities.
 image: ../images/ses.webp
 img_alt: Screenshot of Students Employment Services
 link: https://studentsemploymentservices.com.au/

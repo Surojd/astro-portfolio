@@ -1,7 +1,7 @@
 ---
 inProgress: false
 title: SIM Management System
-description: SIM Card Dealer and User details collection
+description: Manage SIM card dealers, user registration, inventory, and analytics with security and compliance features.
 image: ../images/sim.webp
 img_alt: Screenshot of SIM Management System
 link: https://sim.bloomers.com.np/

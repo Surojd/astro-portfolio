@@ -1,7 +1,7 @@
 ---
 inProgress: false
 title: Bibaabo
-description: BIBAABO, short for BIMA BANK AND BROKER.
+description: Bibaabo is a platform to compare, select, and purchase financial products securely, with user-friendly features and real reviews.
 image: ../images/bibaabo.webp
 img_alt: Screenshot of Bibaabo
 link: https://bibaabo.com/

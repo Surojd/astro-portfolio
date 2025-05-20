@@ -1,7 +1,7 @@
 ---
 inProgress: false
 title: ariasys
-description: Our AI-powered software simplifies project development by effortlessly generating S-Curves from data across Engineering, Procurement, Construction, and Project Management phases.
+description: ariasys uses AI to generate S-Curves and analytics from project data, streamlining Engineering, Procurement, and Construction phases.
 image: ../images/ariasys.webp
 img_alt: Screenshot of ariasys
 link: https://www.ariasys.co/

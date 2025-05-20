@@ -1,7 +1,7 @@
 ---
 inProgress: false
 title: Domain Management
-description: Domain Management for IT Companies
+description: Platform for IT companies to manage domain registration, renewal, transfer, and reporting with a user-friendly interface.
 image: ../images/domain_management.webp
 img_alt: Screenshot of Domain Management
 link: https://crm.surojd.com.np/domain/
