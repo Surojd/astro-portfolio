@@ -17,7 +17,7 @@ export interface LayoutProps {
 }
 
 let { title = 'Java developer', page, meta } = Astro.props as LayoutProps;
-title += ' - Suroj Dangol';
+const baseTitle = title + ' - Suroj Dangol';
 
 const description =
 	meta?.description ??
@@ -25,24 +25,25 @@ const description =
 
 const imageUrl = 'https://surojd.com.np' + (meta?.image?.src ?? '/images/surojd.jpg');
 const url = meta?.url ?? 'https://surojd.com.np/';
+const seoTitle = meta?.title ?? baseTitle;
 ---
 
 <!doctype html>
 <html lang="en" class="scroll-smooth" data-testid="html">
 	<head>
 		<SEO
-			title={meta?.title ?? title}
+			title={seoTitle}
 			description={description}
 			canonical={url}
 			openGraph={{
 				basic: {
-					title: meta?.title ?? title,
+					title: seoTitle,
 					type: 'website',
 					image: imageUrl,
 					url: url,
 				},
 				image: {
-					alt: meta?.title ?? title,
+					alt: seoTitle,
 					height: 800,
 					width: 800,
 					url: imageUrl,
@@ -52,10 +53,10 @@ const url = meta?.url ?? 'https://surojd.com.np/';
 				card: 'summary_large_image',
 				site: '@SurojDangol',
 				creator: '@SurojDangol',
-				title: meta?.title ?? title,
+				title: seoTitle,
 				description: description,
 				image: imageUrl,
-				imageAlt: meta?.title ?? title,
+				imageAlt: seoTitle,
 			}}
 		/>
 		<meta name="author" content="Suroj Dangol" />
