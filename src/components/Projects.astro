@@ -10,7 +10,9 @@ const projects = await getCollection('projects', ({ data }) => {
 ---
 
 <Section title="Projects" id="projects">
-	<div class="mb-10 grid w-full grid-cols-auto-fit-3 gap-3 p-1 sm:gap-5">
+	<div
+		class="mb-10 grid w-full grid-cols-auto-fit-3 gap-3 p-1 sm:grid-cols-auto-fit-4 sm:gap-5 md:grid-cols-auto-fit-5"
+	>
 		{
 			projects
 				.reverse()
