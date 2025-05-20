@@ -1,6 +1,7 @@
 ---
 inProgress: false
 title: Domain Management
+seotitle: Domain Management – IT Domain Platform
 description: Platform for IT companies to manage domain registration, renewal, transfer, and reporting with a user-friendly interface.
 image: ../images/domain_management.webp
 img_alt: Screenshot of Domain Management

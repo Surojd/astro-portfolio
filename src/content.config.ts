@@ -5,6 +5,7 @@ const projectsCollection = defineCollection({
 		z.object({
 			inProgress: z.boolean(),
 			title: z.string(),
+			seotitle: z.string(),
 			image: image(),
 			description: z.string(),
 			tags: z.array(z.string()),

@@ -1,6 +1,7 @@
 ---
 inProgress: false
 title: GSewa
+seotitle: GSewa – Digital Wallet & Payments Platform
 description: GSewa is a digital wallet for secure money transfers, bill payments, online purchases, and transaction management.
 image: ../images/gsewa.webp
 img_alt: Screenshot of GSewa

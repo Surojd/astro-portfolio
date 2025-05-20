@@ -1,6 +1,7 @@
 ---
 inProgress: false
 title: Password Generator
+seotitle: Password Generator – Secure Passwords Tool
 description: Generate strong, secure passwords instantly with customizable options and a user-friendly interface for better online security.
 image: ../images/passwordgenerator.webp
 img_alt: Screenshot of Password Generator

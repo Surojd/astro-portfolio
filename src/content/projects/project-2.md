@@ -1,6 +1,7 @@
 ---
 inProgress: false
 title: SIM Management System
+seotitle: SIM Management – Dealer & Inventory System
 description: Manage SIM card dealers, user registration, inventory, and analytics with security and compliance features.
 image: ../images/sim.webp
 img_alt: Screenshot of SIM Management System

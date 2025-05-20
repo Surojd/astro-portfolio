@@ -1,6 +1,7 @@
 ---
 inProgress: false
 title: Bibaabo
+seotitle: Bibaabo – Compare & Buy Financial Products
 description: Bibaabo is a platform to compare, select, and purchase financial products securely, with user-friendly features and real reviews.
 image: ../images/bibaabo.webp
 img_alt: Screenshot of Bibaabo

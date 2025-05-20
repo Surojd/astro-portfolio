@@ -1,6 +1,7 @@
 ---
 inProgress: false
 title: Uffride Admin
+seotitle: Uffride Admin – Ride Platform Dashboard
 description: Uffride Admin is a dashboard for managing users, rides, analytics, and settings for the Uffride ride-sharing platform.
 image: ../images/uffride.webp
 img_alt: Screenshot of Uffride Admin dashboard

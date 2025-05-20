@@ -1,6 +1,7 @@
 ---
 inProgress: false
 title: ariasys
+seotitle: ariasys – AI S-Curve & Analytics Platform
 description: ariasys uses AI to generate S-Curves and analytics from project data, streamlining Engineering, Procurement, and Construction phases.
 image: ../images/ariasys.webp
 img_alt: Screenshot of ariasys

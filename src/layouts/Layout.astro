@@ -9,6 +9,7 @@ export interface LayoutProps {
 	title: string;
 	page: number;
 	meta?: {
+		title: string;
 		description: string;
 		image: any;
 		url: string;
@@ -30,18 +31,18 @@ const url = meta?.url ?? 'https://surojd.com.np/';
 <html lang="en" class="scroll-smooth" data-testid="html">
 	<head>
 		<SEO
-			title={title}
+			title={meta?.title ?? title}
 			description={description}
 			canonical={url}
 			openGraph={{
 				basic: {
-					title: title,
+					title: meta?.title ?? title,
 					type: 'website',
 					image: imageUrl,
 					url: url,
 				},
 				image: {
-					alt: title,
+					alt: meta?.title ?? title,
 					height: 800,
 					width: 800,
 					url: imageUrl,
@@ -51,10 +52,10 @@ const url = meta?.url ?? 'https://surojd.com.np/';
 				card: 'summary_large_image',
 				site: '@SurojDangol',
 				creator: '@SurojDangol',
-				title: title,
+				title: meta?.title ?? title,
 				description: description,
 				image: imageUrl,
-				imageAlt: title,
+				imageAlt: meta?.title ?? title,
 			}}
 		/>
 		<meta name="author" content="Suroj Dangol" />

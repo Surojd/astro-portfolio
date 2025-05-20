@@ -1,6 +1,7 @@
 ---
 inProgress: false
 title: Students Employment Services
+seotitle: Students Employment Services Platform
 description: Platform connecting students with job listings, applications, employer profiles, and resume builder for career opportunities.
 image: ../images/ses.webp
 img_alt: Screenshot of Students Employment Services
