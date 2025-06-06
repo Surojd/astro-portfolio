@@ -96,6 +96,13 @@ test.describe('hover effect on cards', () => {
 	});
 });
 
+test.describe('basic homepage test', () => {
+	test('homepage loads and has correct title', async ({ page }) => {
+		await page.goto('/');
+		await expect(page).toHaveTitle('A Very Descriptive Title');
+	});
+});
+
 test.afterAll(async ({ page }) => {
 	await page.close();
 });
