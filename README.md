@@ -2,7 +2,7 @@
 
 ## Live [![Netlify Status](https://api.netlify.com/api/v1/badges/6532d157-804b-40a9-ba39-fb2153e749a9/deploy-status)](https://app.netlify.com/projects/surojd/deploys)
 
-📌 [https://surojd.com.np/](https://surojd.com.np/) 
+📌 [https://surojd.com/](https://surojd.com/) 
 
 ## Features
 

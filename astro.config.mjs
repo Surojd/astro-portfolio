@@ -16,5 +16,5 @@ export default defineConfig({
             devicon: ['*'],
         },
 		}), robots(), sitemap(), crittersSlim()],
-    site:'https://surojd.com.np',
+    site:'https://surojd.com',
 });
