@@ -28,31 +28,18 @@ import Layout from '@layouts/Layout.astro';
 	</div>
 
 	<script>
-		function getQueryParam(name: string) {
+		document.addEventListener('DOMContentLoaded', () => {
 			const urlParams = new URLSearchParams(window.location.search);
-			return urlParams.get(name);
-		}
-
-		const loadpage = async (page: string, id: string) => {
-			const response = await fetch(page);
-			const html = await response.text();
-			const dynamicContent = document.getElementById(id);
-			if (dynamicContent) {
-				dynamicContent.outerHTML = html;
-			}
-		};
-
-		document.addEventListener('DOMContentLoaded', async () => {
-			// loadpage('/technology-stack', 'tech');
-			const message = getQueryParam('message');
+			const message = urlParams.get('message');
 			if (message) {
 				const dialog = document.getElementById('messageDialog');
 				const dialogMessage = document.getElementById('dialogMessage');
-				dialogMessage!.textContent = decodeURIComponent(message);
-				dialog!.classList.remove('hidden');
-				dialog!.classList.add('flex');
+				if (dialog && dialogMessage) {
+					dialogMessage.textContent = decodeURIComponent(message);
+					dialog.classList.remove('hidden');
+					dialog.classList.add('flex');
+				}
 			}
-
 			document.getElementById('closeDialog')?.addEventListener('click', () => {
 				document.getElementById('messageDialog')?.classList.add('hidden');
 				document.location.href = '/';
