@@ -1,0 +1,34 @@
+# Suroj Dangol
+
+> Suroj Dangol is a full-stack developer based in Lalitpur, Nepal, working with teams on software applications, SaaS products, integrations, and cloud delivery.
+
+This file is a short index of public website pages. Refer to each page for its current details and context. It does not grant rights to reuse content or set enforceable crawler or model-training rules; consult the site's applicable policies and directives for those requirements.
+
+## Main pages
+
+- [Home](https://surojd.com/): Developer profile, selected work, and contact options.
+- [About](https://surojd.com/about/): Background, location, and professional experience.
+- [Projects](https://surojd.com/projects/): Portfolio of software projects.
+- [Case studies](https://surojd.com/case-studies/): Selected project descriptions and technologies.
+- [Technology stack](https://surojd.com/technology-stack/): Overview of technologies used.
+- [Blog](https://surojd.com/blog/): Engineering topics and software development insights.
+- [Contact](https://surojd.com/#contact): Ways to discuss a project or opportunity.
+
+## Services
+
+- [Spring Boot development](https://surojd.com/services/spring-boot-development/): Java backend services, APIs, and existing application work.
+- [Java development](https://surojd.com/services/java-development/): Java application development and codebase improvements.
+- [SaaS development](https://surojd.com/services/saas-development/): Product discovery, implementation, and ongoing SaaS development.
+- [WordPress development](https://surojd.com/services/wordpress-development/): WordPress site development, integrations, and improvements.
+- [WordPress plugin development](https://surojd.com/services/plugin-development/): Custom plugin planning and development.
+- [Payment gateway integration](https://surojd.com/services/payment-gateway-integration/): Application payment workflows and integrations.
+- [AWS consulting](https://surojd.com/services/aws-consulting/): Application deployment, architecture, and operational planning.
+- [VPS management](https://surojd.com/services/vps-management/): VPS setup, troubleshooting, migration planning, and maintenance.
+
+## Technology pages
+
+- [Spring Boot](https://surojd.com/technologies/spring-boot/): Spring Boot backend experience.
+- [Java](https://surojd.com/technologies/java/): Java application development experience.
+- [React](https://surojd.com/technologies/react/): React web application and interface experience.
+- [Flutter](https://surojd.com/technologies/flutter/): Flutter mobile application experience.
+- [AWS](https://surojd.com/technologies/aws/): AWS application delivery experience.

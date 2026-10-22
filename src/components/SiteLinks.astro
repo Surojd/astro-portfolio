@@ -1,0 +1,61 @@
+---
+const services = [
+	['Spring Boot Development', '/services/spring-boot-development/'],
+	['Java Development', '/services/java-development/'],
+	['SaaS Development', '/services/saas-development/'],
+	['WordPress Development', '/services/wordpress-development/'],
+	['Plugin Development', '/services/plugin-development/'],
+	['Payment Gateway Integration', '/services/payment-gateway-integration/'],
+	['AWS Consulting', '/services/aws-consulting/'],
+	['VPS Management', '/services/vps-management/'],
+];
+
+const technologies = [
+	['Spring Boot', '/technologies/spring-boot/'],
+	['Java', '/technologies/java/'],
+	['React', '/technologies/react/'],
+	['Flutter', '/technologies/flutter/'],
+	['AWS', '/technologies/aws/'],
+];
+
+const linkClass =
+	'inline-flex min-h-11 items-center font-medium text-black underline decoration-orange underline-offset-4 hover:text-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange dark:text-white dark:hover:text-orange';
+---
+
+<nav
+	aria-label="Services, technologies, and resources"
+	class="mx-auto w-full max-w-screen-xl border-t border-gray-300 bg-white px-5 py-8 text-black dark:border-gray-700 dark:bg-black dark:text-white"
+>
+	<h2 class="mb-6 text-2xl font-bold">Explore services and expertise</h2>
+	<div class="grid gap-8 md:grid-cols-3">
+		<section aria-labelledby="site-services-heading">
+			<h3 id="site-services-heading" class="mb-3 text-lg font-semibold">Services</h3>
+			<ul class="grid gap-x-5 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
+				{services.map(([label, href]) => (
+					<li><a class={linkClass} href={href}>{label}</a></li>
+				))}
+			</ul>
+		</section>
+
+		<section aria-labelledby="site-technologies-heading">
+			<h3 id="site-technologies-heading" class="mb-3 text-lg font-semibold">Technologies</h3>
+			<ul class="grid gap-x-5 sm:grid-cols-2 md:grid-cols-1">
+				{technologies.map(([label, href]) => (
+					<li><a class={linkClass} href={href}>{label}</a></li>
+				))}
+			</ul>
+			<a class={`${linkClass} mt-2`} href="/technology-stack/">Full technology stack</a>
+		</section>
+
+		<section aria-labelledby="site-resources-heading">
+			<h3 id="site-resources-heading" class="mb-3 text-lg font-semibold">Explore</h3>
+			<ul class="grid gap-1">
+				<li><a class={linkClass} href="/case-studies/">Case Studies</a></li>
+				<li><a class={linkClass} href="/blog/">Blog</a></li>
+				<li><a class={linkClass} href="/projects/">All Projects</a></li>
+				<li><a class={linkClass} href="/about/">About Suroj</a></li>
+				<li><a class={linkClass} href="/#contact">Contact</a></li>
+			</ul>
+		</section>
+	</div>
+</nav>

@@ -1,1 +1,11 @@
 
+---
+import SiteLinks from '@components/SiteLinks.astro';
+---
+
+<footer data-testid="footer">
+	<SiteLinks />
+	<div class="border-t border-gray-300 px-6 py-5 text-center text-sm dark:border-gray-700">
+		<p>Copyright © {new Date().getFullYear()}. All rights reserved.</p>
+	</div>
+</footer>

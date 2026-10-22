@@ -1,0 +1,70 @@
+---
+import Card from '@components/ui/Card.astro';
+import Schema from '@components/Schema.astro';
+import Layout from '@layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects', ({ data }) => !data.inProgress)).sort((a, b) =>
+	a.data.title.localeCompare(b.data.title)
+);
+const description =
+	'Browse selected software project work by Suroj Dangol across Java, Spring Boot, React, Flutter, AWS, and mobile applications.';
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'CollectionPage',
+	name: 'Software Project Case Studies',
+	description,
+	url: new URL('/case-studies/', Astro.site).href,
+	mainEntity: {
+		'@type': 'ItemList',
+		itemListElement: projects.map((project, index) => ({
+			'@type': 'ListItem',
+			position: index + 1,
+			name: project.data.title,
+			url: new URL(
+				`/projects/${project.data.title.toLowerCase().replace(/\s+/g, '-')}/`,
+				Astro.site
+			).href,
+		})),
+	},
+};
+---
+
+<Layout
+	title="Case Studies"
+	meta={{
+		title: 'Software Project Case Studies | Suroj Dangol',
+		description,
+		url: '/case-studies/',
+	}}
+>
+	<Schema schema={schema} />
+	<main class="mx-auto max-w-6xl px-5 pb-16 pt-16 md:pt-24">
+		<header class="mb-10 max-w-3xl">
+			<p class="mb-3 font-semibold uppercase tracking-wide text-orange">Selected project work</p>
+			<h1 class="mb-5 text-4xl font-bold md:text-5xl">Software project case studies</h1>
+			<p class="text-lg leading-relaxed">
+				Explore selected applications and products I have contributed to, with project descriptions,
+				technologies, and links where available. These summaries focus on documented project scope;
+				they do not claim unverified performance or business outcomes.
+			</p>
+		</header>
+		<section aria-label="Selected software projects">
+			<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+				{projects.map((project) => (
+					<Card
+						image={project.data.image}
+						url={`/projects/${project.data.title.toLowerCase().replace(/\s+/g, '-')}/`}
+						title={project.data.title}
+						description={project.data.description}
+						alt={project.data.img_alt}
+						tags={project.data.tags}
+					/>
+				))}
+			</div>
+		</section>
+		<p class="mt-10">
+			Looking for help with a similar project? <a class="underline hover:text-orange" href="/#contact">Get in touch</a>.
+		</p>
+	</main>
+</Layout>

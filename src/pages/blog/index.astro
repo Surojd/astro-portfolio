@@ -1,0 +1,89 @@
+---
+import Schema from '@components/Schema.astro';
+import Layout from '@layouts/Layout.astro';
+
+const description =
+	'Practical software engineering notes on Java, Spring Boot, SaaS, AWS, WordPress, and running web applications.';
+const topics = [
+	{
+		title: 'Java and Spring Boot',
+		copy: 'Notes on backend development, APIs, existing applications, and the decisions involved in delivering a service.',
+		href: '/technologies/spring-boot/',
+		link: 'Explore Spring Boot experience',
+	},
+	{
+		title: 'SaaS product development',
+		copy: 'Guidance on turning product requirements into a focused scope, planning integrations, and evolving an existing product.',
+		href: '/services/saas-development/',
+		link: 'Explore SaaS development',
+	},
+	{
+		title: 'AWS and application delivery',
+		copy: 'Practical considerations for deployment, architecture reviews, operational readiness, and cloud trade-offs.',
+		href: '/technologies/aws/',
+		link: 'Explore AWS experience',
+	},
+	{
+		title: 'WordPress and integrations',
+		copy: 'Considerations for custom site functionality, plugin development, API integrations, and maintaining an existing installation.',
+		href: '/services/wordpress-development/',
+		link: 'Explore WordPress development',
+	},
+	{
+		title: 'Linux and VPS operations',
+		copy: 'Planning notes for server maintenance, troubleshooting, access, migrations, backups, and operational handover.',
+		href: '/services/vps-management/',
+		link: 'Explore VPS management',
+	},
+];
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'Blog',
+	name: 'Software Engineering Notes | Suroj Dangol',
+	description,
+	url: new URL('/blog/', Astro.site).href,
+	author: { '@type': 'Person', name: 'Suroj Dangol', url: new URL('/about/', Astro.site).href },
+};
+---
+
+<Layout
+	title="Blog"
+	meta={{
+		title: 'Software Engineering Notes | Suroj Dangol',
+		description,
+		url: '/blog/',
+	}}
+>
+	<Schema schema={schema} />
+	<main class="mx-auto max-w-5xl px-5 pb-16 pt-16 md:pt-24">
+		<header class="mb-12 max-w-3xl">
+			<p class="mb-3 font-semibold uppercase tracking-wide text-orange">Engineering notes</p>
+			<h1 class="mb-5 text-4xl font-bold md:text-5xl">Practical software development insights</h1>
+			<p class="text-lg leading-relaxed">
+				This is a home for useful, experience-informed notes on building and maintaining software.
+				The focus is on explaining decisions, trade-offs, and project questions—not publishing
+				generic checklists without context.
+			</p>
+		</header>
+		<section aria-labelledby="topics-heading">
+			<h2 id="topics-heading" class="mb-5 text-2xl font-bold">Browse by topic</h2>
+			<div class="grid gap-5 md:grid-cols-2">
+				{topics.map((topic) => (
+					<article class="rounded-xl border border-gray-300 p-6 dark:border-gray-700">
+						<h3 class="mb-3 text-xl font-semibold">{topic.title}</h3>
+						<p class="mb-4 leading-relaxed">{topic.copy}</p>
+						<a class="underline hover:text-orange" href={topic.href}>{topic.link}</a>
+					</article>
+				))}
+			</div>
+		</section>
+		<section class="mt-12 rounded-xl border border-gray-300 p-6 dark:border-gray-700">
+			<h2 class="mb-3 text-2xl font-bold">Have a question about a project?</h2>
+			<p class="mb-4 leading-relaxed">
+				If you are evaluating an application, integration, or existing codebase, share the context
+				and the outcome you need. I can help clarify the technical questions and possible next steps.
+			</p>
+			<a class="inline-block rounded-lg bg-orange px-6 py-3 font-semibold text-white hover:opacity-90" href="/#contact">Discuss your project</a>
+		</section>
+	</main>
+</Layout>

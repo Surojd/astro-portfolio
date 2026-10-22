@@ -1,0 +1,229 @@
+---
+import Schema from '@components/Schema.astro';
+import Layout from '@layouts/Layout.astro';
+
+export function getStaticPaths() {
+	const services = [
+	{
+		slug: 'spring-boot-development',
+		name: 'Spring Boot Development',
+		title: 'Spring Boot Development Services | Suroj Dangol',
+		description:
+			'Build, extend, or maintain Spring Boot APIs and applications with practical support across delivery, integrations, and production readiness.',
+		intro:
+			'I help teams build and improve Java services with Spring Boot, from a focused API or integration to ongoing work on an existing product.',
+		fit: 'Startups and product teams building a backend, SMEs extending business software, and teams that need an experienced developer to assess or continue an existing Spring Boot codebase.',
+		work: [
+			['API and backend development', 'Design and implement application endpoints, domain workflows, persistence, and integrations around your product requirements.'],
+			['Existing application improvements', 'Add features, investigate defects, and improve maintainability in an established Spring Boot service.'],
+			['Delivery and production readiness', 'Review testing, configuration, deployment assumptions, and operational concerns before a release.'],
+		],
+		steps: ['Understand the users, codebase, constraints, and desired outcome.', 'Agree on scope, acceptance criteria, access, and a delivery plan.', 'Implement in reviewable increments and share progress and trade-offs.', 'Test, document, and hand over the changes with next steps.'],
+		related: ['/technologies/spring-boot/', '/technologies/java/'],
+	},
+	{
+		slug: 'java-development',
+		name: 'Java Development',
+		title: 'Java Development Services | Suroj Dangol',
+		description:
+			'Java development for backend applications, APIs, integrations, and existing software. Discuss your codebase, requirements, and delivery constraints.',
+		intro:
+		'I work with teams to build and evolve Java applications, with an emphasis on understanding existing systems and delivering maintainable changes.',
+		fit: 'Teams starting a Java backend, maintaining a business-critical application, connecting systems, or looking for a developer who can contribute to an existing engineering workflow.',
+		work: [
+			['Backend features and services', 'Implement Java application behavior and service integrations based on clear product and domain requirements.'],
+			['Codebase extension and maintenance', 'Work within an existing codebase to deliver changes while preserving its useful conventions and behavior.'],
+			['Technical investigation', 'Help assess implementation options, risks, dependencies, and next steps before committing to a larger change.'],
+		],
+		steps: ['Review the problem, current system, and expected outcomes.', 'Identify assumptions, dependencies, and a useful first milestone.', 'Develop and verify the agreed changes with regular communication.', 'Provide deployment notes, documentation, and a practical handover.'],
+		related: ['/technologies/java/', '/technologies/spring-boot/'],
+	},
+	{
+		slug: 'saas-development',
+		name: 'SaaS Development',
+		title: 'SaaS Development for Product Teams | Suroj Dangol',
+		description:
+			'Plan, build, and extend SaaS products with full-stack development support, from technical discovery and MVP scope to integrations and iteration.',
+		intro:
+			'Turn a product requirement into a focused delivery plan, then build or extend the software in increments that your team can review and maintain.',
+		fit: 'Founders shaping an MVP, small product teams with a feature backlog, and businesses improving an existing subscription-based application.',
+		work: [
+			['Technical discovery and MVP scope', 'Clarify user workflows, constraints, integrations, and the smallest useful first release.'],
+			['Product features and integrations', 'Build application capabilities across backend services, web interfaces, and external systems.'],
+			['Ongoing product development', 'Extend an existing product, investigate technical issues, and help teams make informed implementation decisions.'],
+		],
+		steps: ['Discuss users, business goals, existing product context, and constraints.', 'Separate essential first-release scope from later opportunities.', 'Deliver and review in clear increments with agreed acceptance criteria.', 'Document decisions and prioritize the next product improvements.'],
+		related: ['/technologies/saas-development/', '/technologies/aws/'],
+	},
+	{
+		slug: 'wordpress-development',
+		name: 'WordPress Development',
+		title: 'WordPress Development Services | Suroj Dangol',
+		description:
+			'Develop and improve WordPress websites, integrations, and existing installations with attention to maintainability, performance, and handover.',
+		intro:
+			'Get practical development help for a WordPress site that needs a new feature, a system integration, a careful update, or an experienced technical review.',
+		fit: 'Businesses improving an existing WordPress site, teams integrating WordPress with another service, or owners who need development support beyond routine content editing.',
+		work: [
+			['Site features and integrations', 'Implement scoped functionality and connect WordPress with external services where the requirements and APIs support it.'],
+			['Existing site improvements', 'Investigate issues, make agreed changes, and consider compatibility with the current theme and plugin environment.'],
+			['Maintenance and handover', 'Plan changes with appropriate staging, backups, testing, and documentation for the site owner.'],
+		],
+		steps: ['Review the site, hosting context, dependencies, and requested change.', 'Confirm access, backups, compatibility expectations, and scope.', 'Make and test changes in an appropriate environment.', 'Document what changed and the ongoing maintenance considerations.'],
+		related: ['/services/plugin-development/', '/services/payment-gateway-integration/'],
+	},
+	{
+		slug: 'plugin-development',
+		name: 'WordPress Plugin Development',
+		title: 'Custom WordPress Plugin Development | Suroj Dangol',
+		description:
+			'Plan and develop custom WordPress plugins and integrations for defined business workflows, with testing and maintainability considered from the start.',
+		intro:
+			'When an off-the-shelf extension does not fit, a custom plugin can implement a specific workflow or connect WordPress to another system. The right scope starts with clear requirements.',
+		fit: 'Site owners and teams with a repeatable workflow, integration, or administrative capability that existing plugins do not adequately support.',
+		work: [
+			['Requirements and plugin scope', 'Define the user roles, inputs, outcomes, dependencies, and boundaries before implementation begins.'],
+			['Custom features and integrations', 'Build plugin behavior around documented WordPress interfaces and the external service contract.'],
+			['Testing and maintainability', 'Consider compatibility, failure handling, data validation, and a practical update and handover approach.'],
+		],
+		steps: ['Describe the workflow and why current plugins are insufficient.', 'Review APIs, data, permissions, compatibility, and edge cases.', 'Agree on a small deliverable and test it in a suitable environment.', 'Document configuration, limitations, and future maintenance needs.'],
+		related: ['/technologies/wordpress/', '/services/wordpress-development/'],
+	},
+	{
+		slug: 'payment-gateway-integration',
+		name: 'Payment Gateway Integration',
+		title: 'Payment Gateway Integration Services | Suroj Dangol',
+		description:
+			'Integrate payment workflows into web applications with careful attention to provider requirements, transaction states, callbacks, testing, and handover.',
+		intro:
+			'Payment integrations involve more than a checkout screen. I help teams plan and implement the application-side workflow around the chosen provider and its documented capabilities.',
+		fit: 'Product teams adding online payments, SaaS teams planning subscription workflows, and businesses troubleshooting an existing payment integration.',
+		work: [
+			['Provider and workflow discovery', 'Clarify supported regions, payment methods, transaction states, refunds, and the provider requirements before choosing an implementation.'],
+			['Application integration', 'Connect the application to provider APIs and callbacks with explicit validation, state handling, and error paths.'],
+			['Testing and operational handover', 'Plan sandbox scenarios, reconciliation expectations, logging boundaries, and support ownership.'],
+		],
+		steps: ['Identify the provider, business flow, markets, and existing integration.', 'Map success, failure, retry, refund, and reconciliation states.', 'Implement and test against the provider documentation and sandbox.', 'Review handover, monitoring, support ownership, and unresolved risks.'],
+		related: ['/services/saas-development/', '/services/plugin-development/'],
+	},
+	{
+		slug: 'aws-consulting',
+		name: 'AWS Consulting',
+		title: 'AWS Consulting for Applications | Suroj Dangol',
+		description:
+			'Get application-focused AWS consulting for deployment, architecture review, migration planning, and operational readiness based on your actual requirements.',
+		intro:
+			'I help software teams reason through AWS application delivery and infrastructure decisions, with recommendations grounded in the workload, team, and operational needs.',
+		fit: 'Teams preparing an application deployment, reviewing an existing setup, planning a migration, or seeking an independent technical perspective on cloud trade-offs.',
+		work: [
+			['Architecture and deployment review', 'Review the current application and deployment context, constraints, and operational responsibilities.'],
+			['Migration and implementation planning', 'Identify dependencies, risks, sequencing, and validation needs before changing an environment.'],
+			['Operations and cost considerations', 'Discuss monitoring, access, recovery, and cost visibility appropriate to the workload.'],
+		],
+		steps: ['Describe the application, current environment, and business constraints.', 'Review available architecture and operational information.', 'Agree on recommendations or an implementation scope with explicit assumptions.', 'Provide a prioritized handover with decisions, risks, and follow-up options.'],
+		related: ['/technologies/aws/', '/services/vps-management/'],
+	},
+	{
+		slug: 'vps-management',
+		name: 'VPS Management',
+		title: 'VPS Management and Linux Support | Suroj Dangol',
+		description:
+			'Get help setting up, maintaining, troubleshooting, or planning a VPS migration for a business application, with clear access and support expectations.',
+		intro:
+			'Practical VPS support begins with understanding the application, server responsibilities, access model, and acceptable maintenance window—not just the provider plan.',
+		fit: 'Small businesses and product teams that operate an application on a VPS and need scoped setup, troubleshooting, migration planning, or maintenance assistance.',
+		work: [
+			['Setup and migration planning', 'Inventory application dependencies, DNS, data, access, and validation steps before server changes.'],
+			['Troubleshooting and maintenance', 'Investigate reported Linux server or deployment issues within an agreed scope and access model.'],
+			['Backups and operational handover', 'Clarify backup ownership, restore expectations, monitoring, and escalation responsibilities.'],
+		],
+		steps: ['Share the server role, issue, provider, and urgency.', 'Agree on safe access, backups, scope, and change approval.', 'Investigate or implement changes with appropriate validation.', 'Record changes, remaining risks, and ongoing support responsibilities.'],
+		related: ['/technologies/aws/', '/technologies/linux-administration/'],
+	},
+	];
+	return services.map((service) => ({ params: { slug: service.slug }, props: { service } }));
+}
+
+const { service } = Astro.props;
+const canonical = `/services/${service.slug}/`;
+const breadcrumbs = [
+	{ name: 'Home', item: '/' },
+	{ name: 'Services', item: '/services/' },
+	{ name: service.name, item: canonical },
+];
+const schemas = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Service',
+		name: service.name,
+		description: service.description,
+		url: new URL(canonical, Astro.site).href,
+		provider: { '@type': 'Person', name: 'Suroj Dangol', url: new URL('/about/', Astro.site).href },
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: breadcrumbs.map((crumb, index) => ({
+			'@type': 'ListItem',
+			position: index + 1,
+			name: crumb.name,
+			item: new URL(crumb.item, Astro.site).href,
+		})),
+	},
+];
+---
+
+<Layout
+	title={service.name}
+	meta={{ title: service.title, description: service.description, url: canonical }}
+>
+	<Schema schema={schemas} />
+	<main class="mx-auto max-w-4xl px-5 pb-16 pt-16 md:pt-24">
+		<nav aria-label="Breadcrumb" class="mb-6 text-sm text-gray-600 dark:text-gray-300">
+			<ol class="flex flex-wrap gap-2">
+				{breadcrumbs.map((crumb, index) => (
+					<li>
+						{index < breadcrumbs.length - 1 ? <a class="underline hover:text-orange" href={crumb.item}>{crumb.name}</a> : <span aria-current="page">{crumb.name}</span>}
+						{index < breadcrumbs.length - 1 && <span aria-hidden="true"> / </span>}
+					</li>
+				))}
+			</ol>
+		</nav>
+		<header class="mb-12">
+			<p class="mb-3 font-semibold uppercase tracking-wide text-orange">Software development service</p>
+			<h1 class="mb-5 text-4xl font-bold md:text-5xl">{service.name}</h1>
+			<p class="mb-7 max-w-3xl text-lg leading-relaxed">{service.intro}</p>
+			<a class="inline-block rounded-lg bg-orange px-6 py-3 font-semibold text-white hover:opacity-90" href="#contact">Discuss your project</a>
+		</header>
+		<section class="mb-12 rounded-xl border border-gray-300 p-6 dark:border-gray-700">
+			<h2 class="mb-3 text-2xl font-bold">Who this is for</h2>
+			<p class="leading-relaxed">{service.fit}</p>
+		</section>
+		<section class="mb-12">
+			<h2 class="mb-5 text-2xl font-bold">How I can help</h2>
+			<div class="grid gap-5 md:grid-cols-3">
+				{service.work.map(([heading, detail]) => (
+					<article class="rounded-xl border border-gray-300 p-5 dark:border-gray-700">
+						<h3 class="mb-3 text-lg font-semibold">{heading}</h3>
+						<p class="leading-relaxed">{detail}</p>
+					</article>
+				))}
+			</div>
+		</section>
+		<section class="mb-12">
+			<h2 class="mb-5 text-2xl font-bold">A clear way to get started</h2>
+			<ol class="list-inside list-decimal space-y-3">
+				{service.steps.map((step) => <li class="leading-relaxed">{step}</li>)}
+			</ol>
+		</section>
+		<nav aria-label="Related services and technologies" class="border-t border-gray-300 pt-6 dark:border-gray-700">
+			<h2 class="mb-3 text-xl font-bold">Related expertise</h2>
+			<ul class="flex flex-wrap gap-4">
+				{service.related.map((href) => (
+					<li><a class="underline hover:text-orange" href={href}>{href.split('/').filter(Boolean).at(-1)?.replaceAll('-', ' ')}</a></li>
+				))}
+				<li><a class="underline hover:text-orange" href="/case-studies/">Browse project work</a></li>
+			</ul>
+		</nav>
+	</main>
+</Layout>

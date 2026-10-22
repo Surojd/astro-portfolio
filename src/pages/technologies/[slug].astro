@@ -1,0 +1,162 @@
+---
+import Schema from '@components/Schema.astro';
+import Layout from '@layouts/Layout.astro';
+
+export function getStaticPaths() {
+	const technologies = [
+	{
+		slug: 'spring-boot',
+		name: 'Spring Boot',
+		title: 'Spring Boot Development Expertise | Suroj Dangol',
+		description:
+			'Explore Spring Boot backend experience across APIs, application features, integrations, and existing Java services, supported by relevant project work.',
+		intro:
+			'Spring Boot is part of my Java backend work, including application features and APIs that need to fit an existing product, team, and operational context.',
+		areas: [
+			['Backend APIs', 'Application endpoints and workflows scoped around client requirements and the surrounding system.'],
+			['Existing services', 'Feature development, maintenance, and technical investigation within an established codebase.'],
+			['Delivery planning', 'Testing, integration, deployment assumptions, and handover considerations for a service.'],
+		],
+		service: '/services/spring-boot-development/',
+	},
+	{
+		slug: 'java',
+		name: 'Java',
+		title: 'Java Development Expertise | Suroj Dangol',
+		description:
+			'Learn how Java fits into my backend and full-stack development work, from application features and APIs to existing-system improvements.',
+		intro:
+			'Java is a core part of my software development experience. I use it to build and extend application backends in the context of real product requirements.',
+		areas: [
+			['Application development', 'Build and evolve Java application capabilities against defined user and business workflows.'],
+			['Backend integration', 'Connect application services and APIs with the systems and data they depend on.'],
+			['Codebase improvement', 'Understand existing behavior and constraints before planning maintainable changes.'],
+		],
+		service: '/services/java-development/',
+	},
+	{
+		slug: 'react',
+		name: 'React',
+		title: 'React Development Expertise | Suroj Dangol',
+		description:
+			'Explore React experience for web interfaces and dashboards, including integration with backend APIs and work within existing products.',
+		intro:
+			'I use React to build and improve web interfaces that connect to application backends, with attention to the product workflow and the needs of the people using it.',
+		areas: [
+			['Web application interfaces', 'Implement interface features around user journeys, data, and application behavior.'],
+			['Dashboards and administration', 'Build views for operational workflows, records, and product management tasks.'],
+			['API-connected features', 'Coordinate frontend behavior with backend contracts, validation, and error states.'],
+		],
+		service: '/services/saas-development/',
+	},
+	{
+		slug: 'flutter',
+		name: 'Flutter',
+		title: 'Flutter Development Expertise | Suroj Dangol',
+		description:
+			'Explore Flutter mobile application work, including cross-platform product features, backend integration, and existing-app improvements.',
+		intro:
+			'My Flutter work includes mobile product development and connecting app experiences with backend services. The best approach depends on the product, supported platforms, and team.',
+		areas: [
+			['Cross-platform application features', 'Implement mobile workflows and product functionality for the agreed platform targets.'],
+			['Backend-connected experiences', 'Plan app behavior around API contracts, authentication, data, and network conditions.'],
+			['Existing application work', 'Assess current structure and release needs before extending or maintaining a Flutter app.'],
+		],
+		service: '/services/saas-development/',
+	},
+	{
+		slug: 'aws',
+		name: 'AWS',
+		title: 'AWS Application Development Expertise | Suroj Dangol',
+		description:
+			'Explore AWS experience in application delivery and cloud projects, including deployment context, system integrations, and operational considerations.',
+		intro:
+			'AWS has been part of delivered application projects. Cloud choices should follow workload and operational needs, so I discuss the existing environment before recommending changes.',
+		areas: [
+			['Application delivery', 'Consider how an application is configured, deployed, and connected to its required services.'],
+			['Cloud project context', 'Review project constraints, dependencies, and team responsibilities before planning implementation.'],
+			['Operational readiness', 'Discuss access, monitoring, recovery, and cost visibility appropriate to the application.'],
+		],
+		service: '/services/aws-consulting/',
+	},
+	];
+	return technologies.map((technology) => ({
+		params: { slug: technology.slug },
+		props: { technology },
+	}));
+}
+
+const { technology } = Astro.props;
+const canonical = `/technologies/${technology.slug}/`;
+const breadcrumbs = [
+	{ name: 'Home', item: '/' },
+	{ name: 'Technologies', item: '/technology-stack/' },
+	{ name: technology.name, item: canonical },
+];
+const schemas = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		name: technology.name,
+		description: technology.description,
+		url: new URL(canonical, Astro.site).href,
+		about: { '@type': 'Thing', name: technology.name },
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: breadcrumbs.map((crumb, index) => ({
+			'@type': 'ListItem',
+			position: index + 1,
+			name: crumb.name,
+			item: new URL(crumb.item, Astro.site).href,
+		})),
+	},
+];
+---
+
+<Layout
+	title={technology.name}
+	meta={{ title: technology.title, description: technology.description, url: canonical }}
+>
+	<Schema schema={schemas} />
+	<main class="mx-auto max-w-4xl px-5 pb-16 pt-16 md:pt-24">
+		<nav aria-label="Breadcrumb" class="mb-6 text-sm text-gray-600 dark:text-gray-300">
+			<ol class="flex flex-wrap gap-2">
+				{breadcrumbs.map((crumb, index) => (
+					<li>
+						{index < breadcrumbs.length - 1 ? <a class="underline hover:text-orange" href={crumb.item}>{crumb.name}</a> : <span aria-current="page">{crumb.name}</span>}
+						{index < breadcrumbs.length - 1 && <span aria-hidden="true"> / </span>}
+					</li>
+				))}
+			</ol>
+		</nav>
+		<header class="mb-12">
+			<p class="mb-3 font-semibold uppercase tracking-wide text-orange">Technology expertise</p>
+			<h1 class="mb-5 text-4xl font-bold md:text-5xl">{technology.name} development</h1>
+			<p class="max-w-3xl text-lg leading-relaxed">{technology.intro}</p>
+		</header>
+		<section class="mb-12">
+			<h2 class="mb-5 text-2xl font-bold">Where this technology fits</h2>
+			<div class="grid gap-5 md:grid-cols-3">
+				{technology.areas.map(([heading, detail]) => (
+					<article class="rounded-xl border border-gray-300 p-5 dark:border-gray-700">
+						<h3 class="mb-3 text-lg font-semibold">{heading}</h3>
+						<p class="leading-relaxed">{detail}</p>
+					</article>
+				))}
+			</div>
+		</section>
+		<section class="mb-12 rounded-xl border border-gray-300 p-6 dark:border-gray-700">
+			<h2 class="mb-3 text-2xl font-bold">Project experience</h2>
+			<p class="mb-4 leading-relaxed">
+				Explore project work to see how technologies were used in specific product contexts. Project details describe the work and stack; outcomes are included only where they can be verified.
+			</p>
+			<a class="underline hover:text-orange" href="/case-studies/">View project case studies</a>
+		</section>
+		<section class="flex flex-wrap items-center gap-5 border-t border-gray-300 pt-6 dark:border-gray-700">
+			<a class="inline-block rounded-lg bg-orange px-6 py-3 font-semibold text-white hover:opacity-90" href={technology.service}>Explore {technology.name} services</a>
+			<a class="underline hover:text-orange" href="/#contact">Discuss a project</a>
+		</section>
+	</main>
+</Layout>
