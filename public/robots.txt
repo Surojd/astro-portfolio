@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /*.shop$
 
 Sitemap: https://surojd.com/sitemap-index.xml

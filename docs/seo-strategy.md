@@ -768,9 +768,12 @@ Current `public/robots.txt`:
 ```text
 User-agent: *
 Allow: /
+Disallow: /*.shop$
 
 Sitemap: https://surojd.com/sitemap-index.xml
 ```
+
+This pattern matches crawl paths on `surojd.com` that end in `.shop`. A site's `robots.txt` cannot block other domains such as `example.shop`, and it is not an access-control mechanism.
 
 Add RSS once the `blog` collection exists. Install the official package first (`npm install @astrojs/rss`), then:
 
@@ -1211,4 +1214,3 @@ Conversion requirements: state who the service fits, what information to send, t
 2. **Low-competition entry points:** specific project problems (production review, legacy modernization, VPS migration planning) supported by real experience.
 3. **High-commercial intent:** focused Spring Boot, Java, SaaS, AWS, WordPress, architecture, and payment pages with credible proof and clear next steps.
 4. **Authority:** publish connected topic clusters, original case studies, and useful operational resources; refresh based on actual Search Console and lead data.
-
