@@ -3,8 +3,6 @@ import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
 import { defineConfig } from 'astro/config';
 
-import robots from 'astro-robots';
-
 import sitemap from '@astrojs/sitemap';
 
 import crittersSlim from 'astro-critters-slim';
@@ -15,6 +13,6 @@ export default defineConfig({
             mdi: ['*'],
             devicon: ['*'],
         },
-		}), robots(), sitemap(), crittersSlim()],
-    site:'https://surojd.com.np',
+		}), sitemap(), crittersSlim()],
+	site: 'https://surojd.com',
 });

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://surojd.com/sitemap-index.xml

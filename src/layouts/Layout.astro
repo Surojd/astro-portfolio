@@ -3,29 +3,55 @@ import Contact from '@components/Contact.astro';
 import Footer from '@components/Footer.astro';
 import Navbar from '@components/Navbar.astro';
 import BackToTop from '@components/ui/BackToTop.astro';
-import { SEO } from 'astro-seo';
+import SEO from '@components/SEO.astro';
+import Schema from '@components/Schema.astro';
+import type { ImageMetadata } from 'astro';
 
 export interface LayoutProps {
 	title: string;
-	page: number;
+	page?: number;
 	meta?: {
-		title: string;
-		description: string;
-		image: any;
-		url: string;
+		title?: string;
+		description?: string;
+		image?: string | ImageMetadata;
+		url?: string;
 	};
 }
 
-let { title = 'Java developer', page, meta } = Astro.props as LayoutProps;
-const baseTitle = title + ' - Suroj Dangol';
-
+const { title = 'Full-Stack Developer', page, meta } = Astro.props;
+const seoTitle = meta?.title ?? `${title} | Suroj Dangol`;
 const description =
 	meta?.description ??
-	'Experienced Java developer and full-stack engineer specializing in web and mobile apps using React, Spring Boot, and Flutter. Open to new projects.';
-
-const imageUrl = 'https://surojd.com.np' + (meta?.image?.src ?? '/images/surojd.jpg');
-const url = meta?.url ?? 'https://surojd.com.np/';
-const seoTitle = meta?.title ?? baseTitle;
+	'Suroj Dangol is a full-stack developer in Nepal specializing in Java, Spring Boot, React, Flutter, and cloud software for teams worldwide.';
+const canonical = meta?.url ?? Astro.url.pathname;
+const image =
+	typeof meta?.image === 'string' ? meta.image : (meta?.image?.src ?? '/images/surojd.jpg');
+const personSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: 'Suroj Dangol',
+	url: new URL('/', Astro.site ?? 'https://surojd.com').href,
+	jobTitle: 'Full-Stack Developer and Software Consultant',
+	description:
+		'Suroj Dangol is a full-stack developer in Nepal specializing in Java, Spring Boot, React, Flutter, and cloud software for teams worldwide.',
+	address: {
+		'@type': 'PostalAddress',
+		addressLocality: 'Lalitpur',
+		addressCountry: 'NP',
+	},
+	knowsAbout: [
+		'Java',
+		'Spring Boot',
+		'React',
+		'Flutter',
+		'AWS',
+		'SaaS development',
+		'WordPress',
+		'Linux administration',
+		'Payment gateway integration',
+		'Software architecture',
+	],
+};
 ---
 
 <!doctype html>
@@ -35,42 +61,13 @@ const seoTitle = meta?.title ?? baseTitle;
 		<SEO
 			title={seoTitle}
 			description={description}
-			canonical={url}
-			openGraph={{
-				basic: {
-					title: seoTitle,
-					type: 'website',
-					image: imageUrl,
-					url: url,
-				},
-				image: {
-					alt: seoTitle,
-					height: 800,
-					width: 800,
-					url: imageUrl,
-				},
-			}}
-			twitter={{
-				card: 'summary_large_image',
-				site: '@SurojDangol',
-				creator: '@SurojDangol',
-				title: seoTitle,
-				description: description,
-				image: imageUrl,
-				imageAlt: seoTitle,
-			}}
+			canonical={canonical}
+			image={image}
 		/>
+		<Schema schema={personSchema} />
 		<meta name="author" content="Suroj Dangol" />
-		<meta
-			name="keywords"
-			content="Java, developer, Flutter, Spring Boot, full-stack, web, mobile, applications, React"
-		/>
 		<meta name="theme-color" content="#000000" />
-		<meta name="robots" content="index, follow" />
-		<meta name="googlebot" content="index, follow" />
-		<meta name="bingbot" content="index, follow" />
-		<meta name="yandex" content="index, follow" />
-		<meta name="referrer" content="no-referrer-when-downgrade" />
+		<meta name="referrer" content="strict-origin-when-cross-origin" />
 		<meta name="format-detection" content="telephone=no" />
 		<meta name="viewport" content="width=device-width" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -110,7 +107,7 @@ const seoTitle = meta?.title ?? baseTitle;
 				style="display:none;visibility:hidden"></iframe></noscript
 		>
 		<!-- End Google Tag Manager (noscript) -->
-		<Navbar nav="topnav" page={page} />
+		<Navbar nav="topnav" page={page ?? 0} />
 
 		<slot />
 		<Contact />
