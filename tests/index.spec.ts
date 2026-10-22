@@ -22,11 +22,23 @@ test.describe('ui test', () => {
 
 	test('website is shown correctly', async ({ page }) => {
 		await expect(page).toHaveURL('http://localhost:3000/');
-		await expect(page).toHaveTitle('A Very Descriptive Title');
+		await expect(page).toHaveTitle('Full-Stack Developer in Nepal | Suroj Dangol');
 		const metaDescription = page.locator("meta[name='description']");
 		await expect(metaDescription).toHaveAttribute(
 			'content',
-			'A heavily optimized description full of well-researched keywords.'
+			'Full-stack developer in Nepal building Java, Spring Boot, web, and mobile applications for teams in Nepal and worldwide.'
+		);
+		await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+			'href',
+			'https://surojd.com/'
+		);
+		await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
+			'content',
+			'Full-Stack Developer in Nepal | Suroj Dangol'
+		);
+		await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute(
+			'content',
+			'summary_large_image'
 		);
 		const html = page.locator('html');
 		await expect(html).toHaveClass('scroll-smooth');
@@ -94,8 +106,4 @@ test.describe('hover effect on cards', () => {
 			'rounded-xl bg-white p-3 shadow-lg duration-100 hover:scale-105 hover:transform hover:shadow-xl'
 		);
 	});
-});
-
-test.afterAll(async ({ page }) => {
-	await page.close();
 });
