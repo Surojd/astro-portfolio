@@ -3,6 +3,15 @@ import HeroPage from '@components/About.astro';
 import Layout from '@layouts/Layout.astro';
 ---
 
-<Layout title="About" page={1} meta={{ url: '/about/' }}>
+<Layout
+	title="About"
+	page={1}
+	meta={{
+		title: 'About Suroj Dangol | Full-Stack Developer',
+		description:
+			'Learn about Suroj Dangol, a full-stack developer based in Khokana, Lalitpur, Nepal, working with teams on Java, Spring Boot, web, and mobile software.',
+		url: '/about/',
+	}}
+>
 	<HeroPage />
 </Layout>

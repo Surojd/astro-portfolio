@@ -15,6 +15,7 @@ export interface LayoutProps {
 		description?: string;
 		image?: string | ImageMetadata;
 		url?: string;
+		type?: 'website' | 'article';
 	};
 }
 
@@ -63,6 +64,7 @@ const personSchema = {
 			description={description}
 			canonical={canonical}
 			image={image}
+			type={meta?.type}
 		/>
 		<Schema schema={personSchema} />
 		<meta name="author" content="Suroj Dangol" />

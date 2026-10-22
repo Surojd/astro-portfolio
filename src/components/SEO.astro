@@ -4,10 +4,11 @@ interface Props {
 	description: string;
 	canonical: string;
 	image: string;
+	type?: 'website' | 'article';
 	noindex?: boolean;
 }
 
-const { title, description, canonical, image, noindex = false } = Astro.props;
+const { title, description, canonical, image, type = 'website', noindex = false } = Astro.props;
 const site = Astro.site ?? new URL('https://surojd.com');
 const canonicalUrl = new URL(canonical, site).href;
 const imageUrl = new URL(image, site).href;
@@ -19,7 +20,7 @@ const robots = noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview
 <meta name="robots" content={robots} />
 <link rel="canonical" href={canonicalUrl} />
 
-<meta property="og:type" content="website" />
+<meta property="og:type" content={type} />
 <meta property="og:site_name" content="Suroj Dangol" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
